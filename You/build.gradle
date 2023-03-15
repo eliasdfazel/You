@@ -1,0 +1,158 @@
+plugins {
+    id 'com.android.application'
+
+    id 'org.jetbrains.kotlin.android'
+
+    id 'com.google.gms.google-services'
+
+    id 'com.google.firebase.firebase-perf'
+    id 'com.google.firebase.crashlytics'
+}
+
+android {
+    namespace 'co.geeksempire.frames.you'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "co.geeksempire.frames.you"
+
+        minSdk 27
+        targetSdk 33
+
+        versionCode 1
+        versionName "${majorVersion}." + getDateMonth() + "." + getDateDay() + "." + getDateYear() + ".${versionCode}"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+
+            manifestPlaceholders = [enableCrashReporting: "true"]
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+
+            manifestPlaceholders = [enableCrashReporting: "false"]
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    flavorDimensions "FramesYou"
+    productFlavors {
+        productionConfiguration {
+            dimension "FramesYou"
+
+            versionNameSuffix ''
+        }
+        betaConfiguration {
+            dimension "FramesYou"
+
+            versionNameSuffix '[Beta]'
+        }
+    }
+
+}
+
+static def getDateYear() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy')//yyyyMMdd
+    return formattedDate
+}
+
+static def getDateMonth() {
+    def date = new Date()
+    def formattedDate = date.format('MM')//yyyyMMdd
+    return formattedDate
+}
+
+static def getDateDay() {
+    def date = new Date()
+    def formattedDate = date.format('dd')//yyyyMMdd
+    return formattedDate
+}
+
+dependencies {
+
+    implementation project(path: ':BlurryEffect')
+    implementation project(path: ':CustomShapes')
+
+
+
+    implementation 'com.google.android.play:app-update-ktx:2.0.1'
+    implementation 'com.google.android.play:review-ktx:2.0.1'
+
+
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation 'androidx.datastore:datastore:1.0.0'
+    implementation 'androidx.datastore:datastore-preferences:1.0.0'
+
+    implementation 'androidx.palette:palette-ktx:1.0.0'
+
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
+
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    implementation 'androidx.work:work-runtime-ktx:2.8.0'
+
+
+
+    implementation 'com.google.android.material:material:1.8.0'
+
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+
+
+
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+
+
+
+    implementation platform('com.google.firebase:firebase-bom:31.2.3')
+
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-perf-ktx'
+
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
+    implementation 'com.google.firebase:firebase-config-ktx'
+
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+
+
+
+    testImplementation 'junit:junit:4.13.2'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

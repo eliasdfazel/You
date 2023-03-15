@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 3/3/23, 5:01 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/rippleMask"
+        android:gravity="center">
+
+        <ripple
+            android:color="@color/white"
+            android:effectColor="@color/primaryColorPurpleLight">
+
+            <item
+                android:id="@android:id/mask">
+
+                <shape
+                    android:shape="rectangle">
+
+                    <corners
+                        android:radius="19dp"/>
+
+                    <solid
+                        android:color="@color/primaryColorPurpleLight" />
+
+                </shape>
+
+            </item>
+
+        </ripple>
+
+    </item>
+
+</layer-list>

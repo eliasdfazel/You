@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "637489667007",
+    "project_id": "frames-you",
+    "storage_bucket": "frames-you.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637489667007:android:0937f34ec196ac72729f0a",
+        "android_client_info": {
+          "package_name": "co.geeksempire.frames.you"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637489667007-cb0ang0mm6c6da1c7lb0pdeq23otqqbu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.geeksempire.frames.you",
+            "certificate_hash": "6fa2d23f54167ebdfcb1ce7cb183c0f709f8934e"
+          }
+        },
+        {
+          "client_id": "637489667007-h6c8rd2708enu9scj5rr6g0qub7vmhpd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.geeksempire.frames.you",
+            "certificate_hash": "bae93c27922cda13ecea6acec5baf8489f165388"
+          }
+        },
+        {
+          "client_id": "637489667007-ccpfvptkpl7c4um3tre9jpklp781c2sk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY6_da3Dhi4v-2KG2PeBtci_AQwvQyZIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637489667007-ccpfvptkpl7c4um3tre9jpklp781c2sk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
