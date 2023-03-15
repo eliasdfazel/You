@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 7:50 AM
+ * Last modified 3/15/23, 8:01 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -21,7 +21,10 @@ import co.geeksempire.frames.you.Utils.Notifications.NotificationsCreator
 import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogue
 import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogueInterface
 
-fun generateLayoutParameters(height: Int, width: Int) : WindowManager.LayoutParams {
+/**
+ * @param  yOffset: Status Bar Height
+ **/
+fun generateLayoutParameters(height: Int, width: Int, yOffset: Int) : WindowManager.LayoutParams {
 
     val layoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
         width,
@@ -32,7 +35,7 @@ fun generateLayoutParameters(height: Int, width: Int) : WindowManager.LayoutPara
     )
     layoutParams.gravity = Gravity.TOP or Gravity.START
     layoutParams.x = 0
-    layoutParams.y = 0
+    layoutParams.y = -(yOffset)
     layoutParams.windowAnimations = android.R.style.Animation_Dialog
 
     return layoutParams

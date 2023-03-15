@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 7:49 AM
+ * Last modified 3/15/23, 7:57 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -20,6 +20,8 @@ import android.view.WindowManager
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.displayX
 import co.geeksempire.frames.you.Utils.Display.displayY
+import co.geeksempire.frames.you.Utils.Display.navigationBarHeight
+import co.geeksempire.frames.you.Utils.Display.statusBarHeight
 import co.geeksempire.frames.you.Utils.Notifications.NotificationsCreator
 import co.geeksempire.frames.you.databinding.OverlyLayoutBinding
 
@@ -51,7 +53,11 @@ class OverlyFrame : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int) : Int {
         super.onStartCommand(intent, flags, startId)
 
-        layoutParameters = generateLayoutParameters(displayY(applicationContext), displayX(applicationContext))
+        layoutParameters = generateLayoutParameters(
+            displayY(applicationContext) + statusBarHeight(applicationContext) + navigationBarHeight(applicationContext),
+            displayX(applicationContext),
+            statusBarHeight(applicationContext)
+        )
 
         windowManager.addView(overlyLayoutBinding.root, layoutParameters)
 
