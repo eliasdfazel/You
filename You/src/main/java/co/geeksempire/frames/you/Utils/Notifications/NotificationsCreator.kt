@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 6:25 AM
+ * Last modified 3/15/23, 7:50 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -16,7 +16,6 @@ import android.app.NotificationManager
 import android.content.Context
 import android.media.MediaPlayer
 import android.os.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import co.geeksempire.frames.you.R
 
@@ -44,7 +43,7 @@ class NotificationsCreator {
 
     }
 
-    fun playNotificationSound(activity: AppCompatActivity, soundId: Int) {
+    fun playNotificationSound(activity: Context, soundId: Int) {
 
         val mediaPlayer: MediaPlayer = MediaPlayer.create(activity, soundId)
         mediaPlayer.setVolume(0.13f, 0.13f)
