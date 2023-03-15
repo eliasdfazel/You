@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 8:10 AM
+ * Last modified 3/15/23, 8:21 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -17,7 +17,6 @@ import android.content.Intent
 import android.os.IBinder
 import android.view.LayoutInflater
 import android.view.WindowManager
-import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Notifications.NotificationsCreator
 import co.geeksempire.frames.you.databinding.OverlyLayoutBinding
 
@@ -53,7 +52,7 @@ class OverlyFrame : Service() {
 
         windowManager.addView(overlyLayoutBinding.root, layoutParameters)
 
-        overlyLayoutBinding.frame.background = (getDrawable(R.drawable.frame))
+//        overlyLayoutBinding.frame.background = (getDrawable(R.drawable.frame))
 
         if (!OverlyFrame.Framing) {
 
