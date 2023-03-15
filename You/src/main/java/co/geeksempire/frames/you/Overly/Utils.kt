@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 8:01 AM
+ * Last modified 3/15/23, 8:08 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -10,6 +10,7 @@
 
 package co.geeksempire.frames.you.Overly
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
 import android.view.Gravity
@@ -17,6 +18,10 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import co.geeksempire.frames.you.R
+import co.geeksempire.frames.you.Utils.Display.displayX
+import co.geeksempire.frames.you.Utils.Display.displayY
+import co.geeksempire.frames.you.Utils.Display.navigationBarHeight
+import co.geeksempire.frames.you.Utils.Display.statusBarHeight
 import co.geeksempire.frames.you.Utils.Notifications.NotificationsCreator
 import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogue
 import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogueInterface
@@ -24,18 +29,18 @@ import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogueInterface
 /**
  * @param  yOffset: Status Bar Height
  **/
-fun generateLayoutParameters(height: Int, width: Int, yOffset: Int) : WindowManager.LayoutParams {
+fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
 
     val layoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
-        width,
-        height,
+        displayX(context),
+        displayY(context) + statusBarHeight(context) + navigationBarHeight(context),
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
         PixelFormat.TRANSLUCENT
     )
     layoutParams.gravity = Gravity.TOP or Gravity.START
     layoutParams.x = 0
-    layoutParams.y = -(yOffset)
+    layoutParams.y = -(statusBarHeight(context))
     layoutParams.windowAnimations = android.R.style.Animation_Dialog
 
     return layoutParams
