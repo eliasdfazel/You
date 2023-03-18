@@ -34,7 +34,7 @@
         android:width="353dp"
         android:height="190dp"
         android:gravity="center"
-        android:drawable="@drawable/logo_transparent">
+        android:drawable="@drawable/logo_blurry">
 
     </item>
 

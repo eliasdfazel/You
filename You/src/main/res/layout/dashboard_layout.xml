@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 3/18/23, 10:40 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/preferences"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginTop="37dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        android:background="@drawable/squircle_shape"
+
+        apps:icon="@drawable/preferences_icon"
+        apps:iconPadding="0dp"
+        apps:iconSize="37dp"
+        apps:iconGravity="textStart"
+        apps:rippleColor="@color/green"
+        apps:backgroundTint="@color/primaryColorPurple"
+
+        apps:layout_constraintTop_toTopOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent"/>
+
+    <include
+        layout="@layout/switch_layout"
+
+        android:id="@+id/floatingPermission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+
+        apps:layout_constraintTop_toBottomOf="@id/preferences"/>
+
+    <include
+        layout="@layout/search_layout"
+
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+
+        apps:layout_constraintTop_toBottomOf="@id/floatingPermission"/>
+
+</co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout>

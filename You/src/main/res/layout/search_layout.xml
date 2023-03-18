@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 3/18/23, 10:42 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="3dp">
+
+    <co.geeksempire.blurry.effect.library.OverlayBlur
+        android:id="@+id/blurryBackground"
+        android:layout_width="0dp"
+        android:layout_height="73dp"
+        android:layout_marginHorizontal="37dp"
+
+        apps:realtimeBlurRadius="7dp"
+        apps:realtimeFirstColor="#2138003C"
+
+        apps:realtimeBlurTopLeft="19dp"
+        apps:realtimeBlurTopRight="19dp"
+        apps:realtimeBlurBottomLeft="19dp"
+        apps:realtimeBlurBottomRight="19dp"
+
+        apps:layout_constraintTop_toTopOf="parent"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/preferencesTitle"
+        android:layout_width="0dp"
+        android:layout_height="73dp"
+        android:paddingHorizontal="7dp"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:maxLines="1"
+        android:letterSpacing="0.31"
+        android:hint="@string/search"
+        android:textColorHint="@color/primaryColorPurple50"
+        android:textColor="@color/primaryColorPurple"
+        android:textSize="31sp"
+        android:fontFamily="@font/houston"
+        android:background="@color/transparent"
+
+        apps:layout_constraintTop_toTopOf="@id/blurryBackground"
+        apps:layout_constraintStart_toStartOf="@id/blurryBackground"
+        apps:layout_constraintEnd_toEndOf="@id/blurryBackground"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
