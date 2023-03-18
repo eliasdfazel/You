@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/18/23, 10:30 AM
+ * Last modified 3/18/23, 11:25 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -44,6 +44,7 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         window.decorView.setBackgroundColor(getColor(R.color.black))
 
         networkConnectionListener.networkConnectionListenerInterface = this@Dashboard
+
 
 
     }
