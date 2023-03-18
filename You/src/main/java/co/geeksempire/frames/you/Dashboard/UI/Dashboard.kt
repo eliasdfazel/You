@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/18/23, 11:29 AM
+ * Last modified 3/18/23, 12:04 PM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -12,9 +12,11 @@ package co.geeksempire.frames.you.Dashboard.UI
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.geeksempire.frames.you.Dashboard.Extensions.setupUserInterface
+import co.geeksempire.frames.you.Database.IO.DataIO
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.columnCount
 import co.geeksempire.frames.you.Utils.Display.displayX
@@ -38,6 +40,10 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         NetworkConnectionListener(this@Dashboard, dashboardLayoutBinding.rootView, networkCheckpoint)
     }
 
+    val dataIO: DataIO by lazy {
+        ViewModelProvider(this@Dashboard)[DataIO::class.java]
+    }
+
     lateinit var dashboardLayoutBinding: DashboardLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +56,12 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         networkConnectionListener.networkConnectionListenerInterface = this@Dashboard
 
         dashboardLayoutBinding.frameRecyclerView.layoutManager = GridLayoutManager(applicationContext, columnCount(applicationContext, (displayX(applicationContext) / 3)), RecyclerView.VERTICAL, false)
+
+        dataIO.allFrames.observe(this@Dashboard) {
+
+
+
+        }
 
     }
 
