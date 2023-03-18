@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/18/23, 11:20 AM
+ * Last modified 3/18/23, 11:29 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -36,10 +36,6 @@ fun Dashboard.setupUserInterface() {
     if (systemSettings.floatingPermissionEnabled()) {
 
         dashboardLayoutBinding.floatingPermission.root.visibility = View.GONE
-
-        /*
-         * Call Firestore
-         */
 
     } else {
 
