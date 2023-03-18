@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/18/23, 11:25 AM
+ * Last modified 3/18/23, 11:29 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -12,8 +12,12 @@ package co.geeksempire.frames.you.Dashboard.UI
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import co.geeksempire.frames.you.Dashboard.Extensions.setupUserInterface
 import co.geeksempire.frames.you.R
+import co.geeksempire.frames.you.Utils.Display.columnCount
+import co.geeksempire.frames.you.Utils.Display.displayX
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkCheckpoint
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListener
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListenerInterface
@@ -45,7 +49,7 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
         networkConnectionListener.networkConnectionListenerInterface = this@Dashboard
 
-
+        dashboardLayoutBinding.frameRecyclerView.layoutManager = GridLayoutManager(applicationContext, columnCount(applicationContext, (displayX(applicationContext) / 3)), RecyclerView.VERTICAL, false)
 
     }
 
