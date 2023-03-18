@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/18/23, 10:53 AM
+ * Last modified 3/18/23, 11:20 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -76,9 +76,9 @@ fun Dashboard.setupUserInterface() {
     /* End - Floating  */
 
     /* Start - Preferences */
-    val preferencesParameters = dashboardLayoutBinding.preferences.layoutParams as ConstraintLayout.LayoutParams
+    val preferencesParameters = dashboardLayoutBinding.preferencesBackground.layoutParams as ConstraintLayout.LayoutParams
     preferencesParameters.topMargin = dpToInteger(applicationContext, 37) + statusBarHeight(applicationContext)
-    dashboardLayoutBinding.preferences.layoutParams = preferencesParameters
+    dashboardLayoutBinding.preferencesBackground.layoutParams = preferencesParameters
 
     dashboardLayoutBinding.preferences.setOnClickListener {
 
