@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/18/23, 10:50 AM
+ * Last modified 3/18/23, 10:53 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -17,8 +17,11 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import co.geeksempire.frames.you.Dashboard.UI.Dashboard
 import co.geeksempire.frames.you.R
+import co.geeksempire.frames.you.Utils.Display.dpToInteger
+import co.geeksempire.frames.you.Utils.Display.statusBarHeight
 import co.geeksempire.frames.you.Utils.Views.Switch.SwitchController
 import co.geeksempire.frames.you.Utils.Views.Switch.SwitchInterface
 
@@ -71,5 +74,17 @@ fun Dashboard.setupUserInterface() {
 
     }
     /* End - Floating  */
+
+    /* Start - Preferences */
+    val preferencesParameters = dashboardLayoutBinding.preferences.layoutParams as ConstraintLayout.LayoutParams
+    preferencesParameters.topMargin = dpToInteger(applicationContext, 37) + statusBarHeight(applicationContext)
+    dashboardLayoutBinding.preferences.layoutParams = preferencesParameters
+
+    dashboardLayoutBinding.preferences.setOnClickListener {
+
+
+
+    }
+    /* End - Preferences */
 
 }
