@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/18/23, 9:57 AM
+ * Last modified 3/18/23, 9:58 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -19,7 +19,7 @@ import co.geeksempire.frames.you.databinding.EntryLayoutBinding
 
 class EntryConfigurations : AppCompatActivity(), NetworkConnectionListenerInterface {
 
-    val networkCheckpoint: NetworkCheckpoint by lazy {
+    private val networkCheckpoint: NetworkCheckpoint by lazy {
         NetworkCheckpoint(applicationContext)
     }
 
