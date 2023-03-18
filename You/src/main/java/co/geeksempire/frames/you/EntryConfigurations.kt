@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 7:41 AM
+ * Last modified 3/18/23, 9:57 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -10,12 +10,8 @@
 
 package co.geeksempire.frames.you
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import co.geeksempire.frames.you.Overly.OverlyFrame
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkCheckpoint
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListener
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListenerInterface
@@ -40,11 +36,7 @@ class EntryConfigurations : AppCompatActivity(), NetworkConnectionListenerInterf
 
         networkConnectionListener.networkConnectionListenerInterface = this@EntryConfigurations
 
-        Handler(Looper.getMainLooper()).postDelayed({
 
-            startForegroundService(Intent(this@EntryConfigurations, OverlyFrame::class.java))
-
-        }, 1357)
 
     }
 
