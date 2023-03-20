@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 7:02 AM
+ * Last modified 3/20/23, 7:03 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -55,7 +55,7 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         FramesAdapter(this@Dashboard)
     }
 
-    val allUntouchedFrames = ArrayList<DataStructure>()
+    private val allUntouchedFrames = ArrayList<DataStructure>()
 
     lateinit var dashboardLayoutBinding: DashboardLayoutBinding
 
