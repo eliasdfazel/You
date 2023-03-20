@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 5:59 AM
+ * Last modified 3/20/23, 6:45 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -19,12 +19,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import co.geeksempire.frames.you.Database.Structure.DataStructure
 import co.geeksempire.frames.you.R
+import co.geeksempire.frames.you.Utils.Display.displayRatio
 import co.geeksempire.frames.you.databinding.FrameItemLayoutBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.firebase.functions.ktx.functions
+import com.google.firebase.ktx.Firebase
 
 class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adapter<FramesViewHolder>() {
 
@@ -78,13 +81,12 @@ class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adap
 
         framesViewHolder.frameBackground.setOnClickListener {
 
-            /*Firebase.firestore
-                .document("/You/Frames/${displayRatio(context)}/${framesItems[position].frameName}")
-                .update(
-                    "frameTrend", (framesItems[position].frameTrend + 1)
-                )*/
-
-            // Call Cloud Function To Update
+            Firebase.functions
+                .getHttpsCallable("updateFrameTrends")
+                .call(hashMapOf(
+                    "documentPath" to "/You/Frames/${displayRatio(context)}/${framesItems[position].frameName}",
+                    "frameTrend" to (framesItems[position].frameTrend + 1)
+                ))
 
         }
 
