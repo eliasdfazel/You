@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 5:07 AM
+ * Last modified 3/20/23, 5:59 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -78,7 +78,13 @@ class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adap
 
         framesViewHolder.frameBackground.setOnClickListener {
 
+            /*Firebase.firestore
+                .document("/You/Frames/${displayRatio(context)}/${framesItems[position].frameName}")
+                .update(
+                    "frameTrend", (framesItems[position].frameTrend + 1)
+                )*/
 
+            // Call Cloud Function To Update
 
         }
 

@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 5:52 AM
+ * Last modified 3/20/23, 5:54 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -80,6 +80,8 @@ class DataIO : ViewModel() {
                 framesItems.add(DataStructure(
                     frameAuthorLink = documentSnapshot.getString(DataIO.Keys.frameAuthorLink).toString(),
                     frameAuthorNickname = documentSnapshot.getString(DataIO.Keys.frameAuthorNickname).toString(),
+
+                    frameName = documentSnapshot.id,
 
                     frameHeight = documentSnapshot.getString(DataIO.Keys.frameHeight).toString(),
                     frameWidth = documentSnapshot.getString(DataIO.Keys.frameWidth).toString(),
