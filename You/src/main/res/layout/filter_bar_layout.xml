@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 3/20/23, 5:44 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="73dp">
+
+    <co.geeksempire.blurry.effect.library.OverlayBlur
+        android:id="@+id/blurryBackground"
+        android:layout_width="0dp"
+        android:layout_height="73dp"
+        android:layout_marginHorizontal="37dp"
+
+        apps:realtimeBlurRadius="53dp"
+        apps:realtimeFirstColor="@color/premiumLightTransparent"
+        apps:realtimeSecondColor="@color/white_transparent"
+
+        apps:realtimeBlurTopLeft="19dp"
+        apps:realtimeBlurTopRight="19dp"
+        apps:realtimeBlurBottomLeft="19dp"
+        apps:realtimeBlurBottomRight="19dp"
+
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/favoriteFrames"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:src="@drawable/favorite_heart"
+        android:background="@drawable/ripple_effect_unbound"
+
+        apps:layout_constraintWidth_percent="0.31"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/hotFrames"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:src="@drawable/hot_icon"
+        android:background="@drawable/ripple_effect_unbound"
+
+        apps:layout_constraintStart_toStartOf="@id/blurryBackground"
+        apps:layout_constraintEnd_toStartOf="@id/favoriteFrames"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/newFrames"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:padding="11dp"
+        android:src="@drawable/new_icon"
+        android:background="@drawable/ripple_effect_unbound"
+
+        apps:layout_constraintStart_toEndOf="@id/favoriteFrames"
+        apps:layout_constraintEnd_toEndOf="@id/blurryBackground"/>
+
+</co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout>

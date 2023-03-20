@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 5:07 AM
+ * Last modified 3/20/23, 5:44 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -11,13 +11,17 @@
 package co.geeksempire.frames.you.Dashboard.UI
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.geeksempire.frames.you.Dashboard.Extensions.setupUserInterface
+import co.geeksempire.frames.you.Dashboard.Filters.FilterFrames
 import co.geeksempire.frames.you.Dashboard.Frames.Adapter.FramesAdapter
 import co.geeksempire.frames.you.Database.IO.DataIO
 import co.geeksempire.frames.you.R
@@ -75,6 +79,16 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
                 framesAdapter.framesItems.addAll(it)
 
                 framesAdapter.notifyItemRangeInserted(0, it.size)
+
+                Handler(Looper.getMainLooper()).postDelayed({
+
+                    dashboardLayoutBinding.filterBar.root.visibility = View.VISIBLE
+                    dashboardLayoutBinding.filterBar.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
+
+                    FilterFrames(this@Dashboard, dashboardLayoutBinding)
+                        .initialize()
+
+                }, 333)
 
             } else {
 
