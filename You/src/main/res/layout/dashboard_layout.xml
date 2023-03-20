@@ -3,7 +3,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/18/23, 11:26 AM
+  ~ Last modified 3/20/23, 4:57 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -82,7 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="37dp"
-        android:alpha="0.37"
+        android:alpha="0.73"
         android:background="@drawable/list_background"
 
         apps:layout_constraintTop_toBottomOf="@id/floatingPermission"
@@ -91,7 +91,10 @@
     <co.geeksempire.frames.you.Utils.Views.Scrolls.NextedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="55dp"
+        android:fadingEdge="vertical"
+        android:fadingEdgeLength="37dp"
+        android:requiresFadingEdge="vertical"
 
         apps:layout_constraintTop_toBottomOf="@id/floatingPermission"
         apps:layout_constraintBottom_toBottomOf="parent">
@@ -99,7 +102,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="137dp"
+            android:paddingBottom="173dp"
             android:isScrollContainer="false"
             android:nestedScrollingEnabled="false">
 
@@ -107,6 +110,7 @@
                 android:id="@+id/frameRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="23dp"
                 android:isScrollContainer="false"
                 android:nestedScrollingEnabled="false"
                 android:layoutAnimation="@anim/fade_in_layout_animation"

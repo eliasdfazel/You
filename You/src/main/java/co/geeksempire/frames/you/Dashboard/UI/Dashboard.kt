@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 3:12 AM
+ * Last modified 3/20/23, 5:07 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -12,15 +12,16 @@ package co.geeksempire.frames.you.Dashboard.UI
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.geeksempire.frames.you.Dashboard.Extensions.setupUserInterface
+import co.geeksempire.frames.you.Dashboard.Frames.Adapter.FramesAdapter
 import co.geeksempire.frames.you.Database.IO.DataIO
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.columnCount
-import co.geeksempire.frames.you.Utils.Display.displayX
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkCheckpoint
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListener
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListenerInterface
@@ -41,8 +42,12 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         NetworkConnectionListener(this@Dashboard, dashboardLayoutBinding.rootView, networkCheckpoint)
     }
 
-    val dataIO: DataIO by lazy {
+    private val dataIO: DataIO by lazy {
         ViewModelProvider(this@Dashboard)[DataIO::class.java]
+    }
+
+    private val framesAdapter by lazy {
+        FramesAdapter(this@Dashboard)
     }
 
     lateinit var dashboardLayoutBinding: DashboardLayoutBinding
@@ -58,13 +63,28 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
         setupUserInterface()
 
-        dashboardLayoutBinding.frameRecyclerView.layoutManager = GridLayoutManager(applicationContext, columnCount(applicationContext, (displayX(applicationContext) / 3)), RecyclerView.VERTICAL, false)
+        dashboardLayoutBinding.frameRecyclerView.layoutManager = GridLayoutManager(applicationContext, columnCount(applicationContext, 159), RecyclerView.VERTICAL, false)
+        dashboardLayoutBinding.frameRecyclerView.adapter = framesAdapter
 
         dataIO.allFrames.observe(this@Dashboard) {
 
+            if (it.isNotEmpty()) {
 
+                framesAdapter.framesItems.clear()
+
+                framesAdapter.framesItems.addAll(it)
+
+                framesAdapter.notifyItemRangeInserted(0, it.size)
+
+            } else {
+
+                Toast.makeText(applicationContext, getString(R.string.errorOccurred), Toast.LENGTH_LONG).show()
+
+            }
 
         }
+
+        dataIO.retrieveFrames(applicationContext)
 
     }
 

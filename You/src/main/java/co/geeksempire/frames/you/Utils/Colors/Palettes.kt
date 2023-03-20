@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 6:25 AM
+ * Last modified 3/20/23, 4:56 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -126,4 +126,15 @@ class Palettes(private val context: Context) {
         return dominantColor
     }
 
+}
+
+fun primaryColors(context: Context) : ArrayList<Int> {
+
+    val allPrimaryColors = ArrayList<Int>()
+    allPrimaryColors.add(context.getColor(R.color.primaryColorGreen))
+    allPrimaryColors.add(context.getColor(R.color.primaryColorRed))
+    allPrimaryColors.add(context.getColor(R.color.primaryColorBlue))
+    allPrimaryColors.add(context.getColor(R.color.primaryColorOrange))
+
+    return allPrimaryColors
 }

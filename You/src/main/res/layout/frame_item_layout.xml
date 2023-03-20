@@ -3,19 +3,32 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/15/23, 6:26 AM
+  ~ Last modified 3/20/23, 4:34 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootView"
+<co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootViewItem"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EntryConfigurations">
+    android:layout_height="283dp"
+    android:layout_marginTop="37dp"
+    android:layout_marginHorizontal="11dp"
 
+    apps:layout_constraintDimensionRatio="1:1">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/frameBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryColorRed"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/frameForeground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/primaryColorPurple" />
+
+</co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout>

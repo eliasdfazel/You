@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 6:25 AM
+ * Last modified 3/20/23, 5:07 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -22,4 +22,21 @@ fun setColorAlpha(color: Int, alphaValue: Float /* 1 (Opaque) -- 255 (Transparen
     val blue = Color.blue(color)
 
     return Color.argb(alpha, red, green, blue)
+}
+
+fun uniqueGradient(allColors: ArrayList<Int>) : IntArray {
+
+    val colorOne = allColors.random()
+
+    var colorTwo = allColors.random()
+
+    if (colorOne == colorTwo) {
+
+        allColors.remove(colorOne)
+
+        colorTwo = allColors.random()
+
+    }
+
+    return intArrayOf(colorOne, colorTwo)
 }
