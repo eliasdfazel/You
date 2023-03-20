@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/18/23, 12:04 PM
+ * Last modified 3/20/23, 3:12 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -11,6 +11,7 @@
 package co.geeksempire.frames.you.Dashboard.UI
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -55,6 +56,8 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
         networkConnectionListener.networkConnectionListenerInterface = this@Dashboard
 
+        setupUserInterface()
+
         dashboardLayoutBinding.frameRecyclerView.layoutManager = GridLayoutManager(applicationContext, columnCount(applicationContext, (displayX(applicationContext) / 3)), RecyclerView.VERTICAL, false)
 
         dataIO.allFrames.observe(this@Dashboard) {
@@ -68,16 +71,16 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
     override fun onResume() {
         super.onResume()
 
-        setupUserInterface()
+        if (systemSettings.floatingPermissionEnabled()) {
+
+            dashboardLayoutBinding.floatingPermission.root.visibility = View.GONE
+
+        }
 
     }
 
-    override fun networkAvailable() {
+    override fun networkAvailable() {}
 
-    }
-
-    override fun networkLost() {
-
-    }
+    override fun networkLost() {}
 
 }

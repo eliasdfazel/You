@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 6:25 AM
+ * Last modified 3/20/23, 3:31 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -165,4 +165,20 @@ fun displaySection(context: Context, X: Int, Y: Int): Int {
         section = 4
     }
     return section
+}
+
+fun displayRatio(context: Context) : String {
+
+    val ratioMap = mapOf (
+        "1.777777777777778" to "16:9",
+        "2.111111111111111" to "19:9",
+        "2.166666666666667" to "19.5:9",
+        "2.144444444444444" to "19.3:9",
+    )
+
+    val ratio: String = (displayY(context).toDouble() / displayX(context).toDouble()).toString()
+
+    val ratioDirectory = ratioMap[ratio]
+
+    return ratioDirectory?:"16:9"
 }
