@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 4:57 AM
+ * Last modified 3/20/23, 5:52 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -92,75 +92,33 @@ class DataIO : ViewModel() {
                     backgroundColors = uniqueGradient(primaryColors)
                 ))
 
-
-                framesItems.add(DataStructure(
-                    frameAuthorLink = documentSnapshot.getString(DataIO.Keys.frameAuthorLink).toString(),
-                    frameAuthorNickname = documentSnapshot.getString(DataIO.Keys.frameAuthorNickname).toString(),
-
-                    frameHeight = documentSnapshot.getString(DataIO.Keys.frameHeight).toString(),
-                    frameWidth = documentSnapshot.getString(DataIO.Keys.frameWidth).toString(),
-                    frameRatio = documentSnapshot.getString(DataIO.Keys.frameRatio).toString(),
-
-                    frameUrl = documentSnapshot.getString(DataIO.Keys.frameUrl).toString(),
-
-                    frameTrend = documentSnapshot.getDouble(DataIO.Keys.frameTrend)?.toInt()?:1,
-                    frameTime = documentSnapshot.getLong(DataIO.Keys.frameTime)?:1,
-                    backgroundColors = uniqueGradient(primaryColors)
-                ))
-
-
-                framesItems.add(DataStructure(
-                    frameAuthorLink = documentSnapshot.getString(DataIO.Keys.frameAuthorLink).toString(),
-                    frameAuthorNickname = documentSnapshot.getString(DataIO.Keys.frameAuthorNickname).toString(),
-
-                    frameHeight = documentSnapshot.getString(DataIO.Keys.frameHeight).toString(),
-                    frameWidth = documentSnapshot.getString(DataIO.Keys.frameWidth).toString(),
-                    frameRatio = documentSnapshot.getString(DataIO.Keys.frameRatio).toString(),
-
-                    frameUrl = documentSnapshot.getString(DataIO.Keys.frameUrl).toString(),
-
-                    frameTrend = documentSnapshot.getDouble(DataIO.Keys.frameTrend)?.toInt()?:1,
-                    frameTime = documentSnapshot.getLong(DataIO.Keys.frameTime)?:1,
-                    backgroundColors = uniqueGradient(primaryColors)
-                ))
-
-
-                framesItems.add(DataStructure(
-                    frameAuthorLink = documentSnapshot.getString(DataIO.Keys.frameAuthorLink).toString(),
-                    frameAuthorNickname = documentSnapshot.getString(DataIO.Keys.frameAuthorNickname).toString(),
-
-                    frameHeight = documentSnapshot.getString(DataIO.Keys.frameHeight).toString(),
-                    frameWidth = documentSnapshot.getString(DataIO.Keys.frameWidth).toString(),
-                    frameRatio = documentSnapshot.getString(DataIO.Keys.frameRatio).toString(),
-
-                    frameUrl = documentSnapshot.getString(DataIO.Keys.frameUrl).toString(),
-
-                    frameTrend = documentSnapshot.getDouble(DataIO.Keys.frameTrend)?.toInt()?:1,
-                    frameTime = documentSnapshot.getLong(DataIO.Keys.frameTime)?:1,
-                    backgroundColors = uniqueGradient(primaryColors)
-                ))
-
-
-                framesItems.add(DataStructure(
-                    frameAuthorLink = documentSnapshot.getString(DataIO.Keys.frameAuthorLink).toString(),
-                    frameAuthorNickname = documentSnapshot.getString(DataIO.Keys.frameAuthorNickname).toString(),
-
-                    frameHeight = documentSnapshot.getString(DataIO.Keys.frameHeight).toString(),
-                    frameWidth = documentSnapshot.getString(DataIO.Keys.frameWidth).toString(),
-                    frameRatio = documentSnapshot.getString(DataIO.Keys.frameRatio).toString(),
-
-                    frameUrl = documentSnapshot.getString(DataIO.Keys.frameUrl).toString(),
-
-                    frameTrend = documentSnapshot.getDouble(DataIO.Keys.frameTrend)?.toInt()?:1,
-                    frameTime = documentSnapshot.getLong(DataIO.Keys.frameTime)?:1,
-                    backgroundColors = uniqueGradient(primaryColors)
-                ))
-
             }
 
         }
 
         allFrames.postValue(framesItems)
+
+    }
+
+    fun filterHotFrames(allFramesInput: ArrayList<DataStructure>) {
+
+        allFramesInput.sortByDescending {
+
+            it.frameTrend
+        }
+
+        allFrames.postValue(allFramesInput)
+
+    }
+
+    fun filterNewFrames(allFramesInput: ArrayList<DataStructure>) {
+
+        allFramesInput.sortByDescending {
+
+            it.frameTime
+        }
+
+        allFrames.postValue(allFramesInput)
 
     }
 

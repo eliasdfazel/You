@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 5:38 AM
+ * Last modified 3/20/23, 5:51 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -10,16 +10,17 @@
 
 package co.geeksempire.frames.you.Dashboard.Filters
 
-import androidx.appcompat.app.AppCompatActivity
+import co.geeksempire.frames.you.Database.IO.DataIO
+import co.geeksempire.frames.you.Database.Structure.DataStructure
 import co.geeksempire.frames.you.databinding.DashboardLayoutBinding
 
-class FilterFrames (private val context: AppCompatActivity, private val dashboardLayoutBinding: DashboardLayoutBinding) {
+class FilterFrames (private val dashboardLayoutBinding: DashboardLayoutBinding, private val dataIO: DataIO) {
 
-    fun initialize() {
+    fun initialize(allFrames: ArrayList<DataStructure>) {
 
         dashboardLayoutBinding.filterBar.newFrames.setOnClickListener {
 
-
+            dataIO.filterNewFrames(allFrames)
 
         }
 
@@ -31,7 +32,7 @@ class FilterFrames (private val context: AppCompatActivity, private val dashboar
 
         dashboardLayoutBinding.filterBar.hotFrames.setOnClickListener {
 
-
+            dataIO.filterHotFrames(allFrames)
 
         }
 

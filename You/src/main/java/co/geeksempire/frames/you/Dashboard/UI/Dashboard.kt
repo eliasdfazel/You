@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 5:44 AM
+ * Last modified 3/20/23, 5:47 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -85,8 +85,8 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
                     dashboardLayoutBinding.filterBar.root.visibility = View.VISIBLE
                     dashboardLayoutBinding.filterBar.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
 
-                    FilterFrames(this@Dashboard, dashboardLayoutBinding)
-                        .initialize()
+                    FilterFrames(dashboardLayoutBinding, dataIO)
+                        .initialize(it)
 
                 }, 333)
 
