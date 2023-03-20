@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 5:47 AM
+ * Last modified 3/20/23, 7:02 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -24,6 +24,7 @@ import co.geeksempire.frames.you.Dashboard.Extensions.setupUserInterface
 import co.geeksempire.frames.you.Dashboard.Filters.FilterFrames
 import co.geeksempire.frames.you.Dashboard.Frames.Adapter.FramesAdapter
 import co.geeksempire.frames.you.Database.IO.DataIO
+import co.geeksempire.frames.you.Database.Structure.DataStructure
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.columnCount
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkCheckpoint
@@ -54,6 +55,8 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         FramesAdapter(this@Dashboard)
     }
 
+    val allUntouchedFrames = ArrayList<DataStructure>()
+
     lateinit var dashboardLayoutBinding: DashboardLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,6 +77,10 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
             if (it.isNotEmpty()) {
 
+                if (allUntouchedFrames.isEmpty()) {
+                    allUntouchedFrames.addAll(it)
+                }
+
                 framesAdapter.framesItems.clear()
 
                 framesAdapter.framesItems.addAll(it)
@@ -85,8 +92,8 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
                     dashboardLayoutBinding.filterBar.root.visibility = View.VISIBLE
                     dashboardLayoutBinding.filterBar.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
 
-                    FilterFrames(dashboardLayoutBinding, dataIO)
-                        .initialize(it)
+                    FilterFrames(applicationContext, dashboardLayoutBinding, dataIO)
+                        .initialize(allUntouchedFrames)
 
                 }, 333)
 

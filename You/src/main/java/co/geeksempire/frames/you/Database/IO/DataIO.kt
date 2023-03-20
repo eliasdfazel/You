@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 5:54 AM
+ * Last modified 3/20/23, 6:59 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -118,6 +118,19 @@ class DataIO : ViewModel() {
         allFramesInput.sortByDescending {
 
             it.frameTime
+        }
+
+        allFrames.postValue(allFramesInput)
+
+    }
+
+    fun filterFavoriteFrames(context: Context, allFramesInput: ArrayList<DataStructure>) {
+
+        val favoriteIO = FavoriteIO(context)
+
+        allFramesInput.filter {
+
+            favoriteIO.favorited(it.frameName)
         }
 
         allFrames.postValue(allFramesInput)
