@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 8:08 AM
+ * Last modified 3/22/23, 8:37 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -33,7 +33,7 @@ fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
 
     val layoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
         displayX(context),
-        displayY(context) + statusBarHeight(context) + navigationBarHeight(context),
+        displayY(context) + navigationBarHeight(context),
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
         PixelFormat.TRANSLUCENT

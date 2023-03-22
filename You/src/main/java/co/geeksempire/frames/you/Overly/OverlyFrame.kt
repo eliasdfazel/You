@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 7:27 AM
+ * Last modified 3/22/23, 8:37 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -42,7 +42,7 @@ class OverlyFrame : Service() {
 
     private val notificationsCreator = NotificationsCreator()
 
-    val windowManager: WindowManager by lazy {
+    private val windowManager: WindowManager by lazy {
         getSystemService(Context.WINDOW_SERVICE) as WindowManager
     }
 
