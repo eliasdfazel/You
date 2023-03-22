@@ -3,7 +3,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/18/23, 10:42 AM
+  ~ Last modified 3/22/23, 8:12 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -38,10 +38,12 @@
         android:id="@+id/preferencesTitle"
         android:layout_width="0dp"
         android:layout_height="73dp"
-        android:paddingHorizontal="7dp"
+        android:paddingHorizontal="11dp"
+        android:imeOptions="actionSearch"
         android:gravity="center_vertical"
         android:lines="1"
         android:maxLines="1"
+        android:singleLine="true"
         android:letterSpacing="0.31"
         android:hint="@string/search"
         android:textColorHint="@color/primaryColorPurple50"
