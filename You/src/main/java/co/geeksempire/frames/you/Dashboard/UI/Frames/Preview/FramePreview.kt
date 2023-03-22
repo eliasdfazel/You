@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 6:33 AM
+ * Last modified 3/22/23, 7:18 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -16,8 +16,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.Extensions.setupUserInterface
 import co.geeksempire.frames.you.R
-import co.geeksempire.frames.you.Utils.Display.displayRatio
 import co.geeksempire.frames.you.databinding.FramesPreviewLayoutBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -25,8 +25,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.google.firebase.functions.ktx.functions
-import com.google.firebase.ktx.Firebase
 
 class FramePreview : AppCompatActivity() {
 
@@ -42,9 +40,11 @@ class FramePreview : AppCompatActivity() {
         framesPreviewLayoutBinding = FramesPreviewLayoutBinding.inflate(layoutInflater)
         setContentView(framesPreviewLayoutBinding.root)
 
-        if (intent.hasExtra(Intent.EXTRA_TEXT)) {
+        setupUserInterface()
 
-            intent.getStringExtra(Intent.EXTRA_TEXT)?.let { frameUrl ->
+        if (intent.hasExtra(FramePreview.IntentKeys.FrameUrl)) {
+
+            intent.getStringExtra(FramePreview.IntentKeys.FrameUrl)?.let { frameUrl ->
 
                 Glide.with(applicationContext)
                     .asDrawable()
@@ -63,7 +63,10 @@ class FramePreview : AppCompatActivity() {
 
                                 runOnUiThread {
 
-                                    framesPreviewLayoutBinding.frame.background = resource
+                                    framesPreviewLayoutBinding.framePreview.background = resource
+
+                                    framesPreviewLayoutBinding.confirmBar.root.visibility = View.VISIBLE
+                                    framesPreviewLayoutBinding.confirmBar.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
 
                                 }
 
@@ -77,17 +80,14 @@ class FramePreview : AppCompatActivity() {
 
                 val frameTrend = intent.getIntExtra(Intent.EXTRA_PHONE_NUMBER, 1)
 
-                framesPreviewLayoutBinding.confirmFrame.visibility = View.VISIBLE
-                framesPreviewLayoutBinding.confirmFrame.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
+                framesPreviewLayoutBinding.confirmBar.confirmFrames.setOnClickListener {
 
-                framesPreviewLayoutBinding.confirmFrame.setOnClickListener {
-
-                    Firebase.functions
-                        .getHttpsCallable("updateFrameTrends")
-                        .call(hashMapOf(
-                            "documentPath" to "/You/Frames/${displayRatio(applicationContext)}/${frameUrl}",
-                            "frameTrend" to (frameTrend + 1)
-                        ))
+//                    Firebase.functions
+//                        .getHttpsCallable("updateFrameTrends")
+//                        .call(hashMapOf(
+//                            "documentPath" to "/You/Frames/${displayRatio(applicationContext)}/${frameUrl}",
+//                            "frameTrend" to (frameTrend + 1)
+//                        ))
 
                 }
 

@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 5:06 AM
+ * Last modified 3/22/23, 6:52 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -78,7 +78,9 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
             if (it.isNotEmpty()) {
 
                 if (allUntouchedFrames.isEmpty()) {
+
                     allUntouchedFrames.addAll(it)
+
                 }
 
                 framesAdapter.framesItems.clear()
@@ -105,8 +107,6 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
         }
 
-        dataIO.retrieveFrames(applicationContext)
-
     }
 
     override fun onResume() {
@@ -115,6 +115,12 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         if (systemSettings.floatingPermissionEnabled()) {
 
             dashboardLayoutBinding.floatingPermission.root.visibility = View.GONE
+
+            if (allUntouchedFrames.isEmpty()) {
+
+                dataIO.retrieveFrames(applicationContext)
+
+            }
 
         }
 
