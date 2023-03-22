@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 8:28 AM
+ * Last modified 3/22/23, 8:33 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -21,12 +21,16 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import co.geeksempire.frames.you.Dashboard.UI.Dashboard
 import co.geeksempire.frames.you.R
+import co.geeksempire.frames.you.Utils.Animations.AnimationStatus
+import co.geeksempire.frames.you.Utils.Animations.multipleColorsRotation
 import co.geeksempire.frames.you.Utils.Display.dpToInteger
 import co.geeksempire.frames.you.Utils.Display.statusBarHeight
 import co.geeksempire.frames.you.Utils.Views.Switch.SwitchController
 import co.geeksempire.frames.you.Utils.Views.Switch.SwitchInterface
 
 fun Dashboard.setupUserInterface() {
+
+    multipleColorsRotation(dashboardLayoutBinding.waiting, arrayOf(getColor(R.color.primaryColorOrange), getColor(R.color.transparent), getColor(R.color.primaryColorGreen)), animationStatus = object : AnimationStatus {})
 
     /* Start - Floating  */
     dashboardLayoutBinding.floatingPermission.preferencesTitle.text = getString(R.string.floatingTitle)
