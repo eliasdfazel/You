@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 8:02 AM
+ * Last modified 3/22/23, 8:23 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -15,6 +15,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -119,6 +120,19 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
             dashboardLayoutBinding.floatingPermission.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
             dashboardLayoutBinding.searchBar.root.visibility = View.VISIBLE
+
+            dashboardLayoutBinding.searchBar.searchQuery.setOnEditorActionListener { view, actionId, keyEvent ->
+
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+
+                    val searchQuery = dashboardLayoutBinding.searchBar.searchQuery.text.toString()
+
+                    dataIO.searchFrames(allUntouchedFrames, searchQuery)
+
+                }
+
+                false
+            }
 
             if (allUntouchedFrames.isEmpty()) {
 

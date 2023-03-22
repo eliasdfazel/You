@@ -3,7 +3,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/22/23, 8:12 AM
+  ~ Last modified 3/22/23, 8:15 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -35,7 +35,7 @@
         apps:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/preferencesTitle"
+        android:id="@+id/searchQuery"
         android:layout_width="0dp"
         android:layout_height="73dp"
         android:paddingHorizontal="11dp"
