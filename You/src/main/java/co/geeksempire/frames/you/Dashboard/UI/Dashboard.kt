@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 8:23 AM
+ * Last modified 3/22/23, 8:34 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -77,6 +77,9 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         dataIO.allFrames.observe(this@Dashboard) {
 
             if (it.isNotEmpty()) {
+
+                dashboardLayoutBinding.waiting.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_out))
+                dashboardLayoutBinding.waiting.visibility = View.GONE
 
                 if (allUntouchedFrames.isEmpty()) {
 

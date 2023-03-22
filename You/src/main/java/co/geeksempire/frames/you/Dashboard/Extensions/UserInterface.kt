@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 8:33 AM
+ * Last modified 3/22/23, 8:34 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -30,7 +30,10 @@ import co.geeksempire.frames.you.Utils.Views.Switch.SwitchInterface
 
 fun Dashboard.setupUserInterface() {
 
-    multipleColorsRotation(dashboardLayoutBinding.waiting, arrayOf(getColor(R.color.primaryColorOrange), getColor(R.color.transparent), getColor(R.color.primaryColorGreen)), animationStatus = object : AnimationStatus {})
+    multipleColorsRotation(dashboardLayoutBinding.waiting,
+        arrayOf(getColor(R.color.primaryColorOrange), getColor(R.color.transparent), getColor(R.color.primaryColorGreen)),
+        animationDuration = 1357,
+        animationStatus = object : AnimationStatus {})
 
     /* Start - Floating  */
     dashboardLayoutBinding.floatingPermission.preferencesTitle.text = getString(R.string.floatingTitle)
