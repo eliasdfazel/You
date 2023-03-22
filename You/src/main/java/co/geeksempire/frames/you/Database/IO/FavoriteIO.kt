@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 6:59 AM
+ * Last modified 3/22/23, 7:20 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -15,7 +15,7 @@ import co.geeksempire.frames.you.Database.Preferences.PreferencesIO
 
 class FavoriteIO (private val context: Context) {
 
-    val preferencesIO = PreferencesIO(context, "Favorites")
+    private val preferencesIO = PreferencesIO(context, "Favorites")
 
     fun favoritIt(frameName: String) {
 

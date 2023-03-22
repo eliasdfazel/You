@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 7:18 AM
+ * Last modified 3/22/23, 7:41 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -13,11 +13,16 @@ package co.geeksempire.frames.you.Dashboard.UI.Frames.Preview
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.Extensions.setupUserInterface
+import co.geeksempire.frames.you.Database.IO.FavoriteIO
+import co.geeksempire.frames.you.Overly.OverlyFrame
 import co.geeksempire.frames.you.R
+import co.geeksempire.frames.you.Utils.Display.displayRatio
 import co.geeksempire.frames.you.databinding.FramesPreviewLayoutBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -25,12 +30,19 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.firebase.functions.ktx.functions
+import com.google.firebase.ktx.Firebase
 
 class FramePreview : AppCompatActivity() {
 
     object IntentKeys {
         const val FrameUrl = "FrameUrl"
         const val FrameTrend = "FrameTrend"
+        const val FrameName = "FrameName"
+    }
+
+    val favoriteIO by lazy {
+        FavoriteIO(applicationContext)
     }
 
     lateinit var framesPreviewLayoutBinding: FramesPreviewLayoutBinding
@@ -42,7 +54,9 @@ class FramePreview : AppCompatActivity() {
 
         setupUserInterface()
 
-        if (intent.hasExtra(FramePreview.IntentKeys.FrameUrl)) {
+        if (intent.hasExtra(FramePreview.IntentKeys.FrameUrl)
+            && intent.hasExtra(FramePreview.IntentKeys.FrameTrend)
+            && intent.hasExtra(FramePreview.IntentKeys.FrameName)) {
 
             intent.getStringExtra(FramePreview.IntentKeys.FrameUrl)?.let { frameUrl ->
 
@@ -78,22 +92,68 @@ class FramePreview : AppCompatActivity() {
                     })
                     .submit()
 
-                val frameTrend = intent.getIntExtra(Intent.EXTRA_PHONE_NUMBER, 1)
+                val frameName = intent.getStringExtra(FramePreview.IntentKeys.FrameName)!!
+
+                val frameTrend = intent.getIntExtra(FramePreview.IntentKeys.FrameTrend, 1)
 
                 framesPreviewLayoutBinding.confirmBar.confirmFrames.setOnClickListener {
 
-//                    Firebase.functions
-//                        .getHttpsCallable("updateFrameTrends")
-//                        .call(hashMapOf(
-//                            "documentPath" to "/You/Frames/${displayRatio(applicationContext)}/${frameUrl}",
-//                            "frameTrend" to (frameTrend + 1)
-//                        ))
+                    if (OverlyFrame.Framing) {
+
+                        stopService(Intent(applicationContext, OverlyFrame::class.java))
+
+                    }
+
+                    Handler(Looper.getMainLooper()).postDelayed({
+
+                        startForegroundService(Intent(applicationContext, OverlyFrame::class.java).apply {
+                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            putExtra(FramePreview.IntentKeys.FrameUrl, frameUrl)
+                        })
+
+                        Firebase.functions
+                            .getHttpsCallable("updateFrameTrends")
+                            .call(hashMapOf(
+                                "documentPath" to "/You/Frames/${displayRatio(applicationContext)}/${frameUrl}",
+                                "frameTrend" to (frameTrend + 1)
+                            ))
+
+                        this@FramePreview.finish()
+
+                    }, 333)
+
+                }
+
+                framesPreviewLayoutBinding.confirmBar.favoriteFrames.setOnClickListener {
+
+                    if (favoriteIO.favorited(frameName)) {
+
+                        favoriteIO.favoritIt(frameName)
+
+                    } else {
+
+                        favoriteIO.deFavoritIt(frameName)
+
+                    }
+
+                }
+
+                framesPreviewLayoutBinding.confirmBar.declineFrames.setOnClickListener {
+
+                    this@FramePreview.finish()
 
                 }
 
             }
 
         }
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        overridePendingTransition(0, R.anim.fade_out)
 
     }
 

@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 8:21 AM
+ * Last modified 3/22/23, 7:27 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -14,11 +14,25 @@ import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.IBinder
 import android.view.LayoutInflater
+import android.view.View
 import android.view.WindowManager
+import android.view.animation.AnimationUtils
+import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.FramePreview
+import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Notifications.NotificationsCreator
 import co.geeksempire.frames.you.databinding.OverlyLayoutBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class OverlyFrame : Service() {
 
@@ -48,15 +62,59 @@ class OverlyFrame : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int) : Int {
         super.onStartCommand(intent, flags, startId)
 
-        layoutParameters = generateLayoutParameters(applicationContext)
+        intent?.let {
 
-        windowManager.addView(overlyLayoutBinding.root, layoutParameters)
+            if (intent.hasExtra(FramePreview.IntentKeys.FrameUrl)) {
 
-//        overlyLayoutBinding.frame.background = (getDrawable(R.drawable.frame))
+                layoutParameters = generateLayoutParameters(applicationContext)
 
-        if (!OverlyFrame.Framing) {
+                windowManager.addView(overlyLayoutBinding.root, layoutParameters)
 
-            OverlyFrame.Framing = true
+                val frameUrl = intent.getStringExtra(FramePreview.IntentKeys.FrameUrl)
+
+                Glide.with(applicationContext)
+                    .asDrawable()
+                    .load(frameUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .listener(object : RequestListener<Drawable> {
+
+                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+
+                            return false
+                        }
+
+                        override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+
+                            resource?.let {
+
+                                CoroutineScope(Dispatchers.Main).launch {
+
+                                    overlyLayoutBinding.frame.background = resource
+
+                                    overlyLayoutBinding.frame.visibility = View.VISIBLE
+                                    overlyLayoutBinding.frame.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
+
+                                }
+
+                            }
+
+                            return false
+                        }
+
+                    })
+                    .submit()
+
+                if (!OverlyFrame.Framing) {
+
+                    OverlyFrame.Framing = true
+
+                }
+
+            } else {
+
+                stopSelf()
+
+            }
 
         }
 
