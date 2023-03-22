@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 6:09 AM
+ * Last modified 3/22/23, 6:33 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -25,6 +25,7 @@ import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.databinding.FrameItemLayoutBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
@@ -54,6 +55,7 @@ class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adap
         Glide.with(context)
             .asDrawable()
             .load(framesItems[position].frameUrl)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .listener(object : RequestListener<Drawable> {
 
                 override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
@@ -83,7 +85,8 @@ class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adap
 
             context.startActivity(Intent(context, FramePreview::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                putExtra(Intent.EXTRA_TEXT, framesItems[position].frameUrl)
+                putExtra(FramePreview.IntentKeys.FrameUrl, framesItems[position].frameUrl)
+                putExtra(FramePreview.IntentKeys.FrameTrend, framesItems[position].frameTrend)
             }, ActivityOptions.makeCustomAnimation(context, R.anim.fade_in, 0).toBundle())
 
         }

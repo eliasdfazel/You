@@ -3,7 +3,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/22/23, 6:09 AM
+  ~ Last modified 3/22/23, 6:24 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -20,11 +20,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.google.android.material.button.MaterialButton
+    <co.geeksempire.blurry.effect.library.OverlayBlur
+        android:layout_width="0dp"
+        android:layout_height="73dp"
+        android:layout_marginBottom="73dp"
+        android:layout_marginHorizontal="37dp"
+
+        apps:realtimeBlurRadius="19dp"
+        apps:realtimeBlurTopLeft="19dp"
+        apps:realtimeBlurTopRight="19dp"
+        apps:realtimeBlurBottomLeft="19dp"
+        apps:realtimeBlurBottomRight="19dp"
+        apps:realtimeFirstColor="@color/primaryColorPurple50"
+
+        apps:layout_constraintBottom_toBottomOf="@id/frame"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/confirmFrame"
         android:layout_width="0dp"
         android:layout_height="73dp"
+        android:layout_marginBottom="73dp"
+        android:layout_marginHorizontal="37dp"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="@string/confirm"
+        android:textSize="37sp"
+        android:textColor="@color/premiumDark"
+        android:fontFamily="@font/houston"
+        android:background="@drawable/ripple_effect_unbound"
 
-        apps:layout_constraintStart_toStartOf="parent"/>
+        apps:layout_constraintBottom_toBottomOf="@id/frame"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent"/>
 
 </co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout>
