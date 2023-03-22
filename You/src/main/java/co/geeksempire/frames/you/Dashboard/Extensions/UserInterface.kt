@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/18/23, 11:29 AM
+ * Last modified 3/22/23, 8:28 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -17,6 +17,7 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.view.View
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import co.geeksempire.frames.you.Dashboard.UI.Dashboard
 import co.geeksempire.frames.you.R
@@ -78,7 +79,7 @@ fun Dashboard.setupUserInterface() {
 
     dashboardLayoutBinding.preferences.setOnClickListener {
 
-
+        Toast.makeText(applicationContext, "Coming Soon...", Toast.LENGTH_LONG).show()
 
     }
     /* End - Preferences */
