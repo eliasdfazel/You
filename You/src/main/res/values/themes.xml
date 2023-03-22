@@ -2,7 +2,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/15/23, 6:25 AM
+  ~ Last modified 3/22/23, 5:58 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -32,6 +32,12 @@
 
         <item name="android:windowEnterAnimation">@anim/fade_in</item>
         <item name="android:windowExitAnimation">@anim/fade_out</item>
+
+    </style>
+
+    <style name="GeeksEmpire.Wallpaper" parent="GeeksEmpire.Material">
+
+        <item name="android:windowShowWallpaper">true</item>
 
     </style>
 

@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 7:03 AM
+ * Last modified 3/22/23, 5:06 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.geeksempire.frames.you.Dashboard.Extensions.setupUserInterface
 import co.geeksempire.frames.you.Dashboard.Filters.FilterFrames
-import co.geeksempire.frames.you.Dashboard.Frames.Adapter.FramesAdapter
+import co.geeksempire.frames.you.Dashboard.UI.Frames.Adapter.FramesAdapter
 import co.geeksempire.frames.you.Database.IO.DataIO
 import co.geeksempire.frames.you.Database.Structure.DataStructure
 import co.geeksempire.frames.you.R

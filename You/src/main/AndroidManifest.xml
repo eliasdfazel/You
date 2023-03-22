@@ -3,7 +3,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/18/23, 10:44 AM
+  ~ Last modified 3/22/23, 5:58 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -54,6 +54,12 @@
             android:exported="true"
             android:windowSoftInputMode="adjustPan|stateHidden"
             android:theme="@style/GeeksEmpire.Material"/>
+
+        <activity
+            android:name=".Dashboard.UI.Frames.Preview.FramePreview"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:theme="@style/GeeksEmpire.Wallpaper"/>
 
         <service
             android:label="@string/applicationName"

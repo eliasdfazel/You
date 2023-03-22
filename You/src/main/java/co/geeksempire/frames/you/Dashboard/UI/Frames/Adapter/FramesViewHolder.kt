@@ -2,13 +2,13 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 5:07 AM
+ * Last modified 3/22/23, 5:06 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
  */
 
-package co.geeksempire.frames.you.Dashboard.Frames.Adapter
+package co.geeksempire.frames.you.Dashboard.UI.Frames.Adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import co.geeksempire.frames.you.databinding.FrameItemLayoutBinding
