@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 5:47 AM
+ * Last modified 3/23/23, 8:21 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -142,6 +142,10 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
                 dataIO.retrieveFrames(applicationContext)
 
             }
+
+        } else {
+
+            dashboardLayoutBinding.waiting.visibility = View.INVISIBLE
 
         }
 
