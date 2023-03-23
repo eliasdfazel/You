@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 7:41 AM
+ * Last modified 3/23/23, 6:56 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -20,6 +20,7 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.Extensions.setupUserInterface
 import co.geeksempire.frames.you.Database.IO.FavoriteIO
+import co.geeksempire.frames.you.Database.IO.FrameIO
 import co.geeksempire.frames.you.Overly.OverlyFrame
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.displayRatio
@@ -37,12 +38,17 @@ class FramePreview : AppCompatActivity() {
 
     object IntentKeys {
         const val FrameUrl = "FrameUrl"
+        const val FrameUrlHorizontal = "FrameUrlHorizontal"
         const val FrameTrend = "FrameTrend"
         const val FrameName = "FrameName"
     }
 
-    val favoriteIO by lazy {
+    private val favoriteIO by lazy {
         FavoriteIO(applicationContext)
+    }
+
+    private val frameIO by lazy {
+        FrameIO(applicationContext)
     }
 
     lateinit var framesPreviewLayoutBinding: FramesPreviewLayoutBinding
@@ -59,6 +65,8 @@ class FramePreview : AppCompatActivity() {
             && intent.hasExtra(FramePreview.IntentKeys.FrameName)) {
 
             intent.getStringExtra(FramePreview.IntentKeys.FrameUrl)?.let { frameUrl ->
+
+                val frameUrlHorizontal = intent.getStringExtra(FramePreview.IntentKeys.FrameUrlHorizontal)!!
 
                 Glide.with(applicationContext)
                     .asDrawable()
@@ -104,11 +112,15 @@ class FramePreview : AppCompatActivity() {
 
                     }
 
+                    frameIO.selectedFrame(frameUrl)
+                    frameIO.selectedFrameHorizontal(frameUrlHorizontal)
+
                     Handler(Looper.getMainLooper()).postDelayed({
 
                         startForegroundService(Intent(applicationContext, OverlyFrame::class.java).apply {
                             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             putExtra(FramePreview.IntentKeys.FrameUrl, frameUrl)
+                            putExtra(FramePreview.IntentKeys.FrameUrlHorizontal, frameUrlHorizontal)
                         })
 
                         Firebase.functions

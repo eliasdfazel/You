@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 6:08 AM
+ * Last modified 3/23/23, 7:10 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -15,6 +15,8 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.IBinder
 import android.view.LayoutInflater
@@ -57,6 +59,9 @@ class OverlyFrame : Service() {
 
     private var layoutParameters = WindowManager.LayoutParams()
 
+    var frameUrl: String = ""
+    var frameUrlHorizontal: String = ""
+
     override fun onBind(intent: Intent?): IBinder? { return null }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -67,13 +72,17 @@ class OverlyFrame : Service() {
 
                 try {
 
-                    if (overlyLayoutBinding.root.isShown) {
+                    if (overlyLayoutBinding.root.isShown
+                        && frameUrl.isNotEmpty()
+                        && frameUrlHorizontal.isNotEmpty()) {
 
                         layoutParameters = generateLayoutParameters(applicationContext)
 
                         windowManager.updateViewLayout(overlyLayoutBinding.root, layoutParameters)
 
                         overlyLayoutBinding.frame.rotation = 0f
+
+                        downloadFrame(frameUrl)
 
                     }
 
@@ -86,13 +95,18 @@ class OverlyFrame : Service() {
 
                 try {
 
-                    if (overlyLayoutBinding.root.isShown) {
+                    if (overlyLayoutBinding.root.isShown
+                        && frameUrl.isNotEmpty()
+                        && frameUrlHorizontal.isNotEmpty()) {
 
                         layoutParameters = generateLayoutParametersHorizontal(applicationContext)
 
                         windowManager.updateViewLayout(overlyLayoutBinding.root, layoutParameters)
 
                         overlyLayoutBinding.frame.rotation = 90f
+                        overlyLayoutBinding.frame.setImageDrawable(ColorDrawable(Color.MAGENTA))
+
+                        downloadFrame(frameUrlHorizontal)
 
                     }
 
@@ -111,45 +125,17 @@ class OverlyFrame : Service() {
 
         intent?.let {
 
-            if (intent.hasExtra(FramePreview.IntentKeys.FrameUrl)) {
+            if (intent.hasExtra(FramePreview.IntentKeys.FrameUrl)
+                && intent.hasExtra(FramePreview.IntentKeys.FrameUrlHorizontal)) {
 
                 layoutParameters = generateLayoutParameters(applicationContext)
 
                 windowManager.addView(overlyLayoutBinding.root, layoutParameters)
 
-                val frameUrl = intent.getStringExtra(FramePreview.IntentKeys.FrameUrl)
+                frameUrl = intent.getStringExtra(FramePreview.IntentKeys.FrameUrl)!!
+                frameUrlHorizontal = intent.getStringExtra(FramePreview.IntentKeys.FrameUrlHorizontal)!!
 
-                Glide.with(applicationContext)
-                    .asDrawable()
-                    .load(frameUrl)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .listener(object : RequestListener<Drawable> {
-
-                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-
-                            return false
-                        }
-
-                        override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-
-                            resource?.let {
-
-                                CoroutineScope(Dispatchers.Main).launch {
-
-                                    overlyLayoutBinding.frame.background = resource
-
-                                    overlyLayoutBinding.frame.visibility = View.VISIBLE
-                                    overlyLayoutBinding.frame.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
-
-                                }
-
-                            }
-
-                            return false
-                        }
-
-                    })
-                    .submit()
+                downloadFrame(frameUrl)
 
                 if (!OverlyFrame.Framing) {
 
@@ -181,6 +167,42 @@ class OverlyFrame : Service() {
         OverlyFrame.Framing = false
 
         windowManager.removeView(overlyLayoutBinding.root)
+
+    }
+
+    private fun downloadFrame(inputFrameUrl: String?) {
+
+        Glide.with(applicationContext)
+            .asDrawable()
+            .load(inputFrameUrl)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .listener(object : RequestListener<Drawable> {
+
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+
+                    return false
+                }
+
+                override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+
+                    resource?.let {
+
+                        CoroutineScope(Dispatchers.Main).launch {
+
+                            overlyLayoutBinding.frame.background = resource
+
+                            overlyLayoutBinding.frame.visibility = View.VISIBLE
+                            overlyLayoutBinding.frame.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
+
+                        }
+
+                    }
+
+                    return false
+                }
+
+            })
+            .submit()
 
     }
 

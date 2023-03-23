@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 7:22 AM
+ * Last modified 3/23/23, 6:49 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -86,6 +86,7 @@ class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adap
             context.startActivity(Intent(context, FramePreview::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 putExtra(FramePreview.IntentKeys.FrameUrl, framesItems[position].frameUrl)
+                putExtra(FramePreview.IntentKeys.FrameUrlHorizontal, framesItems[position].frameUrlHorizontal)
                 putExtra(FramePreview.IntentKeys.FrameTrend, framesItems[position].frameTrend)
                 putExtra(FramePreview.IntentKeys.FrameName, framesItems[position].frameName)
             }, ActivityOptions.makeCustomAnimation(context, R.anim.fade_in, 0).toBundle())

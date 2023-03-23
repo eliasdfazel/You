@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 7:41 AM
+ * Last modified 3/23/23, 6:46 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -17,6 +17,7 @@ class FrameIO (private val context: Context) {
 
     object Key {
         const val SelectedFrame = "SelectedFrame"
+        const val SelectedFrameHorizontal = "SelectedFrameHorizontal"
     }
 
     private val preferencesIO = PreferencesIO(context, "Frames")
@@ -30,6 +31,17 @@ class FrameIO (private val context: Context) {
     fun selectedFrame() : String {
 
         return preferencesIO.readPreference(FrameIO.Key.SelectedFrame, "")
+    }
+
+    fun selectedFrameHorizontal(frameUrl: String) {
+
+        preferencesIO.savePreference(FrameIO.Key.SelectedFrameHorizontal, frameUrl)
+
+    }
+
+    fun selectedFrameHorizontal() : String {
+
+        return preferencesIO.readPreference(FrameIO.Key.SelectedFrameHorizontal, "")
     }
 
 }

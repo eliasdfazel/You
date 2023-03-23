@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 8:23 AM
+ * Last modified 3/23/23, 6:43 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -38,6 +38,7 @@ class DataIO : ViewModel() {
         const val frameRatio = "frameRatio"
 
         const val frameUrl = "frameUrl"
+        const val frameUrlHorizontal = "frameUrlHorizontal"
 
         const val frameTrend = "frameTrend"
 
@@ -88,6 +89,7 @@ class DataIO : ViewModel() {
                     frameRatio = documentSnapshot.getString(DataIO.Keys.frameRatio).toString(),
 
                     frameUrl = documentSnapshot.getString(DataIO.Keys.frameUrl).toString(),
+                    frameUrlHorizontal = documentSnapshot.getString(DataIO.Keys.frameUrlHorizontal).toString(),
 
                     frameTrend = documentSnapshot.getDouble(DataIO.Keys.frameTrend)?.toInt()?:1,
                     frameTime = documentSnapshot.getLong(DataIO.Keys.frameTime)?:1,

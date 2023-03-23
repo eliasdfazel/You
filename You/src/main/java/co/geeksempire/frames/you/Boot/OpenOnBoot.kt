@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 7:41 AM
+ * Last modified 3/23/23, 6:47 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -40,10 +40,12 @@ class OpenOnBoot : AppCompatActivity() {
                 val frameIO = FrameIO(applicationContext)
 
                 val frameUrl = frameIO.selectedFrame()
+                val frameUrlHorizontal = frameIO.selectedFrameHorizontal()
 
                 startForegroundService(Intent(applicationContext, OverlyFrame::class.java).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     putExtra(FramePreview.IntentKeys.FrameUrl, frameUrl)
+                    putExtra(FramePreview.IntentKeys.FrameUrlHorizontal, frameUrl)
                 })
 
             }
