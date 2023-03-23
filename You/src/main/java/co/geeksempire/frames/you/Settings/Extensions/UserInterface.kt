@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 10:16 AM
+ * Last modified 3/23/23, 10:21 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -22,6 +22,8 @@ import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Settings.Settings
 import co.geeksempire.frames.you.Utils.Display.dpToInteger
 import co.geeksempire.frames.you.Utils.Display.statusBarHeight
+import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogue
+import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogueInterface
 import co.geeksempire.frames.you.Utils.Views.Switch.SwitchController
 import co.geeksempire.frames.you.Utils.Views.Switch.SwitchInterface
 
@@ -59,9 +61,24 @@ fun Settings.setupUserInterface() {
 
                 Handler(Looper.getMainLooper()).postDelayed({
 
-                    startActivity(Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
-                        ActivityOptions.makeCustomAnimation(applicationContext, R.anim.fade_in, 0).toBundle())
+                      ConfirmDialogue(this@setupUserInterface, settingLayoutBinding.root)
+                          .initialize(getString(R.string.stabilityTitle), getString(R.string.accessibilityDescription))
+                          .show(object : ConfirmDialogueInterface {
 
+                              override fun confirmed() {
+
+                                  startActivity(Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                                      ActivityOptions.makeCustomAnimation(applicationContext, R.anim.fade_in, 0).toBundle())
+
+                              }
+
+                              override fun dismissed() {
+
+
+                              }
+
+                          })
+                    
                 }, 999)
             }
 
