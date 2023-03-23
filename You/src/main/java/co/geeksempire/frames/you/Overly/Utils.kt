@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 8:37 AM
+ * Last modified 3/23/23, 5:50 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -32,8 +32,8 @@ import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogueInterface
 fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
 
     val layoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
-        displayX(context),
-        displayY(context) + navigationBarHeight(context),
+        /* Width */displayX(context),
+        /* Height */ displayY(context) + navigationBarHeight(context) + statusBarHeight(context),
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
         PixelFormat.TRANSLUCENT
