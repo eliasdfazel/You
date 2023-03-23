@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 8:37 AM
+ * Last modified 3/23/23, 6:02 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -14,6 +14,7 @@ import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.drawable.Drawable
 import android.os.IBinder
 import android.view.LayoutInflater
@@ -57,6 +58,52 @@ class OverlyFrame : Service() {
     private var layoutParameters = WindowManager.LayoutParams()
 
     override fun onBind(intent: Intent?): IBinder? { return null }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        when (newConfig.orientation) {
+            Configuration.ORIENTATION_PORTRAIT -> {
+
+                try {
+
+                    if (overlyLayoutBinding.root.isShown) {
+
+                        overlyLayoutBinding.frame.rotation = 0f
+
+                        layoutParameters = generateLayoutParameters(applicationContext)
+
+                        windowManager.updateViewLayout(overlyLayoutBinding.root, layoutParameters)
+
+                    }
+
+                } catch (e: WindowManager.InvalidDisplayException) {
+                    e.printStackTrace()
+                }
+
+            }
+            Configuration.ORIENTATION_LANDSCAPE -> {
+
+                try {
+
+                    if (overlyLayoutBinding.root.isShown) {
+
+                        overlyLayoutBinding.frame.rotation = 90f
+
+                        layoutParameters = generateLayoutParametersHorizontal(applicationContext)
+
+                        windowManager.updateViewLayout(overlyLayoutBinding.root, layoutParameters)
+
+                    }
+
+                } catch (e: WindowManager.InvalidDisplayException) {
+                    e.printStackTrace()
+                }
+
+            }
+        }
+
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int) : Int {
