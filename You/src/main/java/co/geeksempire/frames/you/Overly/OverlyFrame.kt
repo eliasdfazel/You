@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 6:02 AM
+ * Last modified 3/23/23, 6:08 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -69,11 +69,11 @@ class OverlyFrame : Service() {
 
                     if (overlyLayoutBinding.root.isShown) {
 
-                        overlyLayoutBinding.frame.rotation = 0f
-
                         layoutParameters = generateLayoutParameters(applicationContext)
 
                         windowManager.updateViewLayout(overlyLayoutBinding.root, layoutParameters)
+
+                        overlyLayoutBinding.frame.rotation = 0f
 
                     }
 
@@ -88,11 +88,11 @@ class OverlyFrame : Service() {
 
                     if (overlyLayoutBinding.root.isShown) {
 
-                        overlyLayoutBinding.frame.rotation = 90f
-
                         layoutParameters = generateLayoutParametersHorizontal(applicationContext)
 
                         windowManager.updateViewLayout(overlyLayoutBinding.root, layoutParameters)
+
+                        overlyLayoutBinding.frame.rotation = 90f
 
                     }
 
