@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 3/23/23, 10:13 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/back"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginStart="37dp"
+        android:src="@drawable/back"
+
+        apps:layout_constraintTop_toTopOf="parent"
+        apps:layout_constraintStart_toStartOf="parent"/>
+
+    <include
+        layout="@layout/switch_layout"
+
+        android:id="@+id/accessibilityPermission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+
+        apps:layout_constraintTop_toBottomOf="@id/back"/>
+
+    <include
+        layout="@layout/notice_bar_layout"
+
+        android:id="@+id/noticeRemove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="73dp"
+        android:visibility="invisible"
+
+        apps:layout_constraintBottom_toBottomOf="parent" />
+
+</co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout>

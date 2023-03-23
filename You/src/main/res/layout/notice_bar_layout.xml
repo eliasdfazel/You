@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 3/23/23, 10:12 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="73dp">
+
+    <co.geeksempire.blurry.effect.library.OverlayBlur
+        android:id="@+id/blurryBackground"
+        android:layout_width="0dp"
+        android:layout_height="73dp"
+        android:layout_marginHorizontal="37dp"
+
+        apps:realtimeBlurRadius="19dp"
+        apps:realtimeFirstColor="@color/premiumLightTransparent"
+        apps:realtimeSecondColor="@color/white_transparent"
+
+        apps:realtimeBlurTopLeft="19dp"
+        apps:realtimeBlurTopRight="19dp"
+        apps:realtimeBlurBottomLeft="19dp"
+        apps:realtimeBlurBottomRight="19dp"
+
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/noticeActionBackground"
+        android:layout_width="73dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="13dp"
+        android:scaleType="fitCenter"
+        android:scaleX="1.3"
+        android:scaleY="1.3"
+        android:tint="@color/primaryColorRed"
+        android:src="@drawable/notice_button"
+
+        apps:layout_constraintTop_toTopOf="@id/blurryBackground"
+        apps:layout_constraintBottom_toBottomOf="@id/blurryBackground"
+        apps:layout_constraintEnd_toEndOf="@id/blurryBackground"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/noticeActionText"
+        android:layout_width="73dp"
+        android:layout_height="31dp"
+        android:gravity="center"
+        android:text="@string/yes"
+        android:textSize="15sp"
+        android:textColor="@color/primaryColorPurple"
+        android:fontFamily="@font/ubuntu"
+
+        apps:layout_constraintTop_toTopOf="@id/noticeActionBackground"
+        apps:layout_constraintBottom_toBottomOf="@id/noticeActionBackground"
+        apps:layout_constraintStart_toStartOf="@id/noticeActionBackground"
+        apps:layout_constraintEnd_toEndOf="@id/noticeActionBackground"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/noticeDescription"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="13dp"
+        android:lines="1"
+        android:maxLines="1"
+        android:gravity="center_vertical"
+        android:text="@string/removeFrame"
+        android:textSize="15sp"
+        android:textColor="@color/primaryColorPurple"
+        android:fontFamily="@font/ubuntu"
+
+        apps:layout_constraintTop_toTopOf="@id/blurryBackground"
+        apps:layout_constraintBottom_toBottomOf="@id/blurryBackground"
+        apps:layout_constraintStart_toStartOf="@id/blurryBackground"
+        apps:layout_constraintEnd_toStartOf="@id/noticeActionBackground"/>
+
+</co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout>

@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 8:34 AM
+ * Last modified 3/23/23, 10:04 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -15,12 +15,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Handler
 import android.os.Looper
-import android.provider.Settings
 import android.view.View
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import co.geeksempire.frames.you.Dashboard.UI.Dashboard
 import co.geeksempire.frames.you.R
+import co.geeksempire.frames.you.Settings.Settings
 import co.geeksempire.frames.you.Utils.Animations.AnimationStatus
 import co.geeksempire.frames.you.Utils.Animations.multipleColorsRotation
 import co.geeksempire.frames.you.Utils.Display.dpToInteger
@@ -68,7 +67,7 @@ fun Dashboard.setupUserInterface() {
 
                 Handler(Looper.getMainLooper()).postDelayed({
 
-                    startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                    startActivity(Intent(android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                         ActivityOptions.makeCustomAnimation(applicationContext, R.anim.fade_in, 0).toBundle())
 
                 }, 999)
@@ -86,7 +85,9 @@ fun Dashboard.setupUserInterface() {
 
     dashboardLayoutBinding.preferences.setOnClickListener {
 
-        Toast.makeText(applicationContext, "Coming Soon...", Toast.LENGTH_LONG).show()
+        startActivity(Intent(this@setupUserInterface, Settings::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+            ActivityOptions.makeCustomAnimation(applicationContext, R.anim.fade_in, 0).toBundle()
+        )
 
     }
     /* End - Preferences */
