@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 7:17 AM
+ * Last modified 3/23/23, 7:30 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -57,7 +57,7 @@ fun generateLayoutParametersHorizontal(context: Context) : WindowManager.LayoutP
     )
     layoutParams.gravity = Gravity.TOP or Gravity.START
     layoutParams.x = 0
-    layoutParams.y = 0
+    layoutParams.y = -(statusBarHeight(context))
     layoutParams.windowAnimations = android.R.style.Animation_Dialog
 
     return layoutParams

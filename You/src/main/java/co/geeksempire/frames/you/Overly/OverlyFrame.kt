@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 7:10 AM
+ * Last modified 3/23/23, 7:34 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -15,10 +15,9 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.IBinder
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -75,6 +74,7 @@ class OverlyFrame : Service() {
                     if (overlyLayoutBinding.root.isShown
                         && frameUrl.isNotEmpty()
                         && frameUrlHorizontal.isNotEmpty()) {
+                        Log.d(this@OverlyFrame.javaClass.simpleName, "-> Portrait <-")
 
                         layoutParameters = generateLayoutParameters(applicationContext)
 
@@ -98,13 +98,11 @@ class OverlyFrame : Service() {
                     if (overlyLayoutBinding.root.isShown
                         && frameUrl.isNotEmpty()
                         && frameUrlHorizontal.isNotEmpty()) {
+                        Log.d(this@OverlyFrame.javaClass.simpleName, "-> Landscape <-")
 
                         layoutParameters = generateLayoutParametersHorizontal(applicationContext)
 
                         windowManager.updateViewLayout(overlyLayoutBinding.root, layoutParameters)
-
-                        overlyLayoutBinding.frame.rotation = 90f
-                        overlyLayoutBinding.frame.setImageDrawable(ColorDrawable(Color.MAGENTA))
 
                         downloadFrame(frameUrlHorizontal)
 
