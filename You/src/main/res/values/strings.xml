@@ -2,7 +2,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/20/23, 4:13 AM
+  ~ Last modified 3/23/23, 7:21 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -28,6 +28,6 @@
     <string name="confirm">Confirm</string>
     <string name="dismiss">Dismiss</string>
 
-    <string name="errorOccurred">Error Occurred</string>
+    <string name="errorOccurred">Error Occurred, Try Again…</string>
 
 </resources>
