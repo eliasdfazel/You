@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 10:13 AM
+ * Last modified 3/23/23, 10:16 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -59,7 +59,7 @@ fun Settings.setupUserInterface() {
 
                 Handler(Looper.getMainLooper()).postDelayed({
 
-                    startActivity(Intent(android.provider.Settings.ACTION_USAGE_ACCESS_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                    startActivity(Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                         ActivityOptions.makeCustomAnimation(applicationContext, R.anim.fade_in, 0).toBundle())
 
                 }, 999)
@@ -91,6 +91,19 @@ fun Settings.setupUserInterface() {
             settingLayoutBinding.noticeRemove.root.visibility = View.VISIBLE
 
         }, 555)
+
+        settingLayoutBinding.noticeRemove.noticeActionBackground.setOnClickListener {
+
+            stopService(Intent(this@setupUserInterface, OverlyFrame::class.java))
+
+            Handler(Looper.getMainLooper()).postDelayed({
+
+                settingLayoutBinding.noticeRemove.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_down))
+                settingLayoutBinding.noticeRemove.root.visibility = View.INVISIBLE
+
+            }, 555)
+
+        }
 
     } else {
 
