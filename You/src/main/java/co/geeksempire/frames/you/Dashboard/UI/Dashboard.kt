@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/22/23, 8:34 AM
+ * Last modified 3/23/23, 5:47 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -121,7 +121,7 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
             dashboardLayoutBinding.floatingPermission.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_out))
             dashboardLayoutBinding.floatingPermission.root.visibility = View.GONE
 
-            dashboardLayoutBinding.floatingPermission.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
+            dashboardLayoutBinding.searchBar.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
             dashboardLayoutBinding.searchBar.root.visibility = View.VISIBLE
 
             dashboardLayoutBinding.searchBar.searchQuery.setOnEditorActionListener { view, actionId, keyEvent ->
