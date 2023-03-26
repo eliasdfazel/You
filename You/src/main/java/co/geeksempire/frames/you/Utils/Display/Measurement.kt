@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 3:31 AM
+ * Last modified 3/26/23, 6:02 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -13,6 +13,7 @@ package co.geeksempire.frames.you.Utils.Display
 import android.content.Context
 import android.content.res.Resources
 import android.util.DisplayMetrics
+import android.util.Log
 import android.util.TypedValue
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -178,7 +179,9 @@ fun displayRatio(context: Context) : String {
 
     val ratio: String = (displayY(context).toDouble() / displayX(context).toDouble()).toString()
 
-    val ratioDirectory = ratioMap[ratio]
+    val ratioDirectory = ratioMap[ratio]?:"16:9"
 
-    return ratioDirectory?:"16:9"
+    Log.d("Display Measurement", "Display Ratio: $ratioDirectory")
+
+    return ratioDirectory
 }

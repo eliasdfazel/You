@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 6:49 AM
+ * Last modified 3/26/23, 6:03 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -16,6 +16,7 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.RippleDrawable
+import android.util.Log
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -45,6 +46,7 @@ class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(framesViewHolder: FramesViewHolder, position: Int) {
+        Log.d(this@FramesAdapter.javaClass.simpleName, framesItems[position].frameUrl)
 
         val rippleDrawable = context.getDrawable(R.drawable.ripple_effect_unbound) as RippleDrawable
         rippleDrawable.setColor(ColorStateList.valueOf(framesItems[position].backgroundColors.random()))

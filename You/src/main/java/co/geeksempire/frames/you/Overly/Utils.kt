@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 7:30 AM
+ * Last modified 3/26/23, 6:00 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -17,6 +17,7 @@ import android.view.Gravity
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.FramePreview
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.displayX
 import co.geeksempire.frames.you.Utils.Display.displayY
@@ -63,7 +64,8 @@ fun generateLayoutParametersHorizontal(context: Context) : WindowManager.LayoutP
     return layoutParams
 }
 
-fun createOverlyLayout(context: AppCompatActivity, notificationsCreator: NotificationsCreator, rootView: ConstraintLayout) {
+fun createOverlyLayout(context: AppCompatActivity, notificationsCreator: NotificationsCreator, rootView: ConstraintLayout,
+                       frameUrl: String, frameUrlHorizontal: String) {
 
     notificationsCreator.playNotificationSound(context, R.raw.titan)
     notificationsCreator.doVibrate(context, 73)
@@ -80,7 +82,11 @@ fun createOverlyLayout(context: AppCompatActivity, notificationsCreator: Notific
 
             })
 
-        context.startForegroundService(Intent(context, OverlyFrame::class.java))
+        context.startForegroundService(Intent(context, OverlyFrame::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            putExtra(FramePreview.IntentKeys.FrameUrl, frameUrl)
+            putExtra(FramePreview.IntentKeys.FrameUrlHorizontal, frameUrlHorizontal)
+        })
 
     } else {
 
