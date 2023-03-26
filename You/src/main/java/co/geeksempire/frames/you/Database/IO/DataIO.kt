@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 6:29 AM
+ * Last modified 3/26/23, 7:22 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -11,6 +11,7 @@
 package co.geeksempire.frames.you.Database.IO
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import co.geeksempire.frames.you.Database.Structure.DataStructure
@@ -125,23 +126,33 @@ class DataIO : ViewModel() {
 
         val favoriteIO = FavoriteIO(context)
 
-        allFramesInput.filter {
+        val filteredContent = allFramesInput.filter {
 
             favoriteIO.favorited(it.frameName)
         }
+
+        allFramesInput.clear()
+
+        allFramesInput.addAll(filteredContent)
 
         allFrames.postValue(allFramesInput)
 
     }
 
     fun searchFrames(allFramesInput: ArrayList<DataStructure>, searchQuery: String) {
+        Log.d(this@DataIO.javaClass.simpleName, "Search: ${searchQuery}")
 
-        allFramesInput.filter {
+        val filteredContent = allFramesInput.filter {
 
             (it.frameAuthorNickname.lowercase().contains(searchQuery.lowercase()))
-                    || (it.frameName.lowercase().contains(searchQuery.lowercase()))
-                    || (it.frameTags.lowercase() == searchQuery.lowercase())
+                    || (it.frameTags.lowercase().contains(searchQuery.lowercase()))
         }
+
+        allFramesInput.clear()
+
+        println(">>>>>>>>>>>>>> ${filteredContent}")
+
+        allFramesInput.addAll(filteredContent)
 
         allFrames.postValue(allFramesInput)
 
