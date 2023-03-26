@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 6:47 AM
+ * Last modified 3/26/23, 6:52 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -45,7 +45,7 @@ class OpenOnBoot : AppCompatActivity() {
                 startForegroundService(Intent(applicationContext, OverlyFrame::class.java).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     putExtra(FramePreview.IntentKeys.FrameUrl, frameUrl)
-                    putExtra(FramePreview.IntentKeys.FrameUrlHorizontal, frameUrl)
+                    putExtra(FramePreview.IntentKeys.FrameUrlHorizontal, frameUrlHorizontal)
                 })
 
             }

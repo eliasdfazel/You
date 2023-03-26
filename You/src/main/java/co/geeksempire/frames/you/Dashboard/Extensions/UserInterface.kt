@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 10:04 AM
+ * Last modified 3/26/23, 6:32 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -30,7 +30,7 @@ import co.geeksempire.frames.you.Utils.Views.Switch.SwitchInterface
 fun Dashboard.setupUserInterface() {
 
     multipleColorsRotation(dashboardLayoutBinding.waiting,
-        arrayOf(getColor(R.color.primaryColorOrange), getColor(R.color.transparent), getColor(R.color.primaryColorGreen)),
+        arrayOf(getColor(R.color.primaryColorRed), getColor(R.color.transparent), getColor(R.color.primaryColorGreen)),
         animationDuration = 1357,
         animationStatus = object : AnimationStatus {})
 

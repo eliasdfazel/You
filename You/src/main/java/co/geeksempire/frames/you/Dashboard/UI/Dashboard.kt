@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 8:21 AM
+ * Last modified 3/26/23, 6:52 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -16,7 +16,6 @@ import android.os.Looper
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -32,6 +31,8 @@ import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkCheckpoint
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListener
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListenerInterface
 import co.geeksempire.frames.you.Utils.Settings.SystemSettings
+import co.geeksempire.frames.you.Utils.Views.Dialogue.NoticeBar
+import co.geeksempire.frames.you.Utils.Views.Dialogue.NoticeInterface
 import co.geeksempire.frames.you.databinding.DashboardLayoutBinding
 
 class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
@@ -105,7 +106,21 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
             } else {
 
-                Toast.makeText(applicationContext, getString(R.string.errorOccurred), Toast.LENGTH_LONG).show()
+                NoticeBar(this@Dashboard, dashboardLayoutBinding.root)
+                    .initialize(getString(R.string.errorOccurred))
+                    .show(object : NoticeInterface {
+
+                        override fun action() {
+
+                            if (allUntouchedFrames.isEmpty()) {
+
+                                dataIO.retrieveFrames(applicationContext)
+
+                            }
+
+                        }
+
+                    })
 
             }
 

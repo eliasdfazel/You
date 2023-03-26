@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 5:17 AM
+ * Last modified 3/26/23, 6:29 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -52,14 +52,13 @@ class DataIO : ViewModel() {
 
         Firebase.firestore
             .collection("/You/Frames/${displayRatio(context)}")
-            .get(Source.DEFAULT)
+            .get(Source.SERVER)
             .addOnSuccessListener { querySnapshot ->
 
                 processFramesSnapshots(context, querySnapshot)
 
             }.addOnFailureListener {
-
-
+                it.printStackTrace()
 
             }
 
