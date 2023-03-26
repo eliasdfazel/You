@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 6:54 AM
+ * Last modified 3/26/23, 6:59 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -107,7 +107,7 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
             } else {
 
                 NoticeBar(this@Dashboard, dashboardLayoutBinding.root)
-                    .initialize(getString(R.string.errorOccurred))
+                    .initialize(getString(R.string.errorOccurred), noticeActionText = getString(R.string.retry))
                     .show(object : NoticeInterface {
 
                         override fun noticeAction() {

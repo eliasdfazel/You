@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 6:54 AM
+ * Last modified 3/26/23, 6:58 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -18,6 +18,7 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import co.geeksempire.frames.you.R
+import co.geeksempire.frames.you.Utils.Display.dpToInteger
 import co.geeksempire.frames.you.databinding.NoticeBarLayoutBinding
 
 interface NoticeInterface {
@@ -28,7 +29,7 @@ class NoticeBar (private val context: AppCompatActivity, private val viewGroup: 
 
     private val noticeBarLayoutBinding = NoticeBarLayoutBinding.inflate(context.layoutInflater)
 
-    fun initialize(noticeDescription: String) : NoticeBar {
+    fun initialize(noticeDescription: String, noticeActionText: String = "Yes") : NoticeBar {
 
         viewGroup.addView(noticeBarLayoutBinding.root)
 
@@ -37,9 +38,11 @@ class NoticeBar (private val context: AppCompatActivity, private val viewGroup: 
         val noticeBarParameters = noticeBarLayoutBinding.root.layoutParams as ConstraintLayout.LayoutParams
         noticeBarParameters.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
         noticeBarParameters.width = ConstraintLayout.LayoutParams.MATCH_PARENT
+        noticeBarParameters.bottomMargin = dpToInteger(context, 73)
         noticeBarLayoutBinding.root.layoutParams = noticeBarParameters
 
         noticeBarLayoutBinding.noticeDescription.text = Html.fromHtml(noticeDescription, Html.FROM_HTML_MODE_COMPACT)
+        noticeBarLayoutBinding.noticeActionText.text = noticeActionText
 
         noticeBarLayoutBinding.rootView.apply {
             visibility = View.VISIBLE
