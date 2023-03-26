@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 10:21 AM
+ * Last modified 3/26/23, 7:11 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -90,6 +90,8 @@ fun Settings.setupUserInterface() {
     /* Start - Back */
     val backParameters = settingLayoutBinding.back.layoutParams as ConstraintLayout.LayoutParams
     backParameters.topMargin = dpToInteger(applicationContext, 37) + statusBarHeight(applicationContext)
+    settingLayoutBinding.backBackground.layoutParams = backParameters
+    settingLayoutBinding.backIcon.layoutParams = backParameters
     settingLayoutBinding.back.layoutParams = backParameters
 
     settingLayoutBinding.back.setOnClickListener {

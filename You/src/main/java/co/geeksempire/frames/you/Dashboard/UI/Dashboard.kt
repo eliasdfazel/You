@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 6:59 AM
+ * Last modified 3/26/23, 7:04 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -10,6 +10,7 @@
 
 package co.geeksempire.frames.you.Dashboard.UI
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -61,6 +62,7 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
     lateinit var dashboardLayoutBinding: DashboardLayoutBinding
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dashboardLayoutBinding = DashboardLayoutBinding.inflate(layoutInflater)
@@ -92,7 +94,7 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
                 framesAdapter.framesItems.addAll(it)
 
-                framesAdapter.notifyItemRangeInserted(0, it.size)
+                framesAdapter.notifyDataSetChanged()
 
                 Handler(Looper.getMainLooper()).postDelayed({
 
