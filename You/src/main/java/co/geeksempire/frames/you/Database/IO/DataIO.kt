@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 6:43 AM
+ * Last modified 3/26/23, 4:53 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -33,9 +33,7 @@ class DataIO : ViewModel() {
         const val frameAuthorLink = "frameAuthorLink"
         const val frameAuthorNickname = "frameAuthorNickname"
 
-        const val frameHeight = "frameHeight"
-        const val frameWidth = "frameWidth"
-        const val frameRatio = "frameRatio"
+        const val frameTags = "frameTags"
 
         const val frameUrl = "frameUrl"
         const val frameUrlHorizontal = "frameUrlHorizontal"
@@ -84,9 +82,7 @@ class DataIO : ViewModel() {
 
                     frameName = documentSnapshot.id,
 
-                    frameHeight = documentSnapshot.getString(DataIO.Keys.frameHeight).toString(),
-                    frameWidth = documentSnapshot.getString(DataIO.Keys.frameWidth).toString(),
-                    frameRatio = documentSnapshot.getString(DataIO.Keys.frameRatio).toString(),
+                    frameTags = documentSnapshot.getString(DataIO.Keys.frameTags).toString(),
 
                     frameUrl = documentSnapshot.getString(DataIO.Keys.frameUrl).toString(),
                     frameUrlHorizontal = documentSnapshot.getString(DataIO.Keys.frameUrlHorizontal).toString(),
@@ -145,9 +141,7 @@ class DataIO : ViewModel() {
 
             (it.frameAuthorNickname.contains(searchQuery))
                     || (it.frameName.contains(searchQuery))
-                    || (it.frameRatio == searchQuery)
-                    || (it.frameWidth == searchQuery)
-                    || (it.frameHeight == searchQuery)
+                    || (it.frameTags == searchQuery)
         }
 
         allFrames.postValue(allFramesInput)
