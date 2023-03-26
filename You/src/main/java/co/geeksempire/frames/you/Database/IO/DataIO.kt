@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 4:53 AM
+ * Last modified 3/26/23, 5:17 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -139,9 +139,9 @@ class DataIO : ViewModel() {
 
         allFramesInput.filter {
 
-            (it.frameAuthorNickname.contains(searchQuery))
-                    || (it.frameName.contains(searchQuery))
-                    || (it.frameTags == searchQuery)
+            (it.frameAuthorNickname.lowercase().contains(searchQuery.lowercase()))
+                    || (it.frameName.lowercase().contains(searchQuery.lowercase()))
+                    || (it.frameTags.lowercase() == searchQuery.lowercase())
         }
 
         allFrames.postValue(allFramesInput)
