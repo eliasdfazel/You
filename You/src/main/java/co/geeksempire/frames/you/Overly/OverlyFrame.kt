@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 7:34 AM
+ * Last modified 3/26/23, 5:03 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -187,7 +187,7 @@ class OverlyFrame : Service() {
 
                         CoroutineScope(Dispatchers.Main).launch {
 
-                            overlyLayoutBinding.frame.background = resource
+                            overlyLayoutBinding.frame.setShapeDrawable(resource)
 
                             overlyLayoutBinding.frame.visibility = View.VISIBLE
                             overlyLayoutBinding.frame.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
