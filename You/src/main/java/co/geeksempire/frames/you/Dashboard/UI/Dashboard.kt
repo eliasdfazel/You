@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 6:52 AM
+ * Last modified 3/26/23, 6:54 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -110,7 +110,7 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
                     .initialize(getString(R.string.errorOccurred))
                     .show(object : NoticeInterface {
 
-                        override fun action() {
+                        override fun noticeAction() {
 
                             if (allUntouchedFrames.isEmpty()) {
 

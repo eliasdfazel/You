@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 6:47 AM
+ * Last modified 3/26/23, 6:54 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -21,7 +21,7 @@ import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.databinding.NoticeBarLayoutBinding
 
 interface NoticeInterface {
-    fun action()
+    fun noticeAction()
 }
 
 class NoticeBar (private val context: AppCompatActivity, private val viewGroup: ConstraintLayout) {
@@ -53,7 +53,7 @@ class NoticeBar (private val context: AppCompatActivity, private val viewGroup: 
 
         noticeBarLayoutBinding.noticeActionBackground.setOnClickListener {
 
-            noticeInterface.action()
+            noticeInterface.noticeAction()
 
             dismiss()
 
