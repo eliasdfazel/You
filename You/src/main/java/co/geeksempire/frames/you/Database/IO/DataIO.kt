@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 7:22 AM
+ * Last modified 3/26/23, 7:23 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -149,8 +149,6 @@ class DataIO : ViewModel() {
         }
 
         allFramesInput.clear()
-
-        println(">>>>>>>>>>>>>> ${filteredContent}")
 
         allFramesInput.addAll(filteredContent)
 
