@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 6:25 AM
+ * Last modified 3/27/23, 6:10 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -92,6 +92,8 @@ fun rotateAnimationY(view: View,
 
 
 fun multipleColorsRotation(instanceOfView: AppCompatImageView, allColors: Array<Int>, animationDuration: Long = 3333, animationStatus: AnimationStatus) {
+
+    instanceOfView.visibility = View.VISIBLE
 
     instanceOfView.setImageDrawable(GradientDrawable(GradientDrawable.Orientation.TR_BL, allColors.toIntArray()))
 

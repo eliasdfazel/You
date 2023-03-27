@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 5:41 AM
+ * Last modified 3/27/23, 6:05 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -183,7 +183,7 @@ fun displayRatio(context: Context) : String {
 
     if (ratioDirectory == null) {
 
-        ratioDirectory = ratioMap.nearestNumber(ratio.toDouble())
+        ratioDirectory = ratioMap[ratioMap.nearestNumber(ratio.toDouble())]
 
     }
 
@@ -191,5 +191,5 @@ fun displayRatio(context: Context) : String {
 
     Log.d("Display Measurement", "Selected Display Ratio: $ratioDirectory")
 
-    return ratioDirectory
+    return ratioDirectory!!
 }
