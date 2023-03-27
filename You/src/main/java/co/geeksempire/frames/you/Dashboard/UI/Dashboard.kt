@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 7:04 AM
+ * Last modified 3/27/23, 5:44 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -11,9 +11,11 @@
 package co.geeksempire.frames.you.Dashboard.UI
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
@@ -154,9 +156,9 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
                 false
             }
 
-            if (allUntouchedFrames.isEmpty()) {
+            if (!networkCheckpoint.networkConnection()) {
 
-                dataIO.retrieveFrames(applicationContext)
+                this@Dashboard.networkLost()
 
             }
 
@@ -168,8 +170,34 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
     }
 
-    override fun networkAvailable() {}
+    override fun networkAvailable() {
 
-    override fun networkLost() {}
+        if (systemSettings.floatingPermissionEnabled()) {
+
+            if (allUntouchedFrames.isEmpty()) {
+
+                dataIO.retrieveFrames(applicationContext)
+
+            }
+
+        }
+
+    }
+
+    override fun networkLost() {
+
+        NoticeBar(this@Dashboard, dashboardLayoutBinding.root)
+            .initialize(getString(R.string.noInternet), noticeActionText = getString(R.string.retry))
+            .show(object : NoticeInterface {
+
+                override fun noticeAction() {
+
+                    startActivity(Intent(Settings.ACTION_WIFI_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+
+                }
+
+            })
+
+    }
 
 }

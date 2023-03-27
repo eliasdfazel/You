@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 6:02 AM
+ * Last modified 3/27/23, 5:41 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -15,6 +15,7 @@ import android.content.res.Resources
 import android.util.DisplayMetrics
 import android.util.Log
 import android.util.TypedValue
+import co.geeksempire.frames.you.Utils.Operations.nearestNumber
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -172,16 +173,23 @@ fun displayRatio(context: Context) : String {
 
     val ratioMap = mapOf (
         "1.777777777777778" to "16:9",
-        "2.111111111111111" to "19:9",
-        "2.166666666666667" to "19.5:9",
-        "2.144444444444444" to "19.3:9",
+        "2.000000000000000" to "18:9",
+        "2.166666666666667" to "19.5:9"
     )
 
     val ratio: String = (displayY(context).toDouble() / displayX(context).toDouble()).toString()
 
-    val ratioDirectory = ratioMap[ratio]?:"16:9"
+    var ratioDirectory = ratioMap[ratio]
 
-    Log.d("Display Measurement", "Display Ratio: $ratioDirectory")
+    if (ratioDirectory == null) {
+
+        ratioDirectory = ratioMap.nearestNumber(ratio.toDouble())
+
+    }
+
+    Log.d("Display Measurement", "Display Ratio: $ratio")
+
+    Log.d("Display Measurement", "Selected Display Ratio: $ratioDirectory")
 
     return ratioDirectory
 }
