@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 7:05 AM
+ * Last modified 3/27/23, 7:19 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -78,11 +78,8 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         dashboardLayoutBinding.frameRecyclerView.adapter = framesAdapter
 
         dataIO.allFrames.observe(this@Dashboard) {
-            println(">>> >> >1 " + columnCount(applicationContext, 159))
 
             if (it.isNotEmpty()) {
-
-                println(">>> >> >2 " + columnCount(applicationContext, 159))
 
                 dashboardLayoutBinding.waiting.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_out))
                 dashboardLayoutBinding.waiting.visibility = View.GONE
