@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 6:13 AM
+ * Last modified 3/27/23, 6:21 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -52,14 +52,12 @@ class DataIO : ViewModel() {
     fun retrieveFrames(context: Context) {
 
         val firestoreDirectory = "/You/Frames/${displayRatio(context)}"
-        Log.d(this@DataIO.javaClass.simpleName, firestoreDirectory)
+        Log.d(this@DataIO.javaClass.simpleName, "${firestoreDirectory}")
 
         Firebase.firestore
             .collection(firestoreDirectory)
             .get(Source.DEFAULT)
             .addOnSuccessListener { querySnapshot ->
-
-                println(">>> >> > ${querySnapshot.documents}")
 
                 processFramesSnapshots(context, querySnapshot)
 
@@ -78,6 +76,8 @@ class DataIO : ViewModel() {
 
         if (!querySnapshot.isEmpty
             && querySnapshot.documents.isNotEmpty()) {
+
+            println(">>> >> >")
 
             querySnapshot.documents.forEach { documentSnapshot ->
 
