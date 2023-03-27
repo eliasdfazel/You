@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 5:44 AM
+ * Last modified 3/27/23, 6:53 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -74,8 +74,6 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
         networkConnectionListener.networkConnectionListenerInterface = this@Dashboard
 
-        setupUserInterface()
-
         dashboardLayoutBinding.frameRecyclerView.layoutManager = GridLayoutManager(applicationContext, columnCount(applicationContext, 159), RecyclerView.VERTICAL, false)
         dashboardLayoutBinding.frameRecyclerView.adapter = framesAdapter
 
@@ -135,6 +133,8 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
     override fun onResume() {
         super.onResume()
 
+        setupUserInterface()
+
         if (systemSettings.floatingPermissionEnabled()) {
 
             dashboardLayoutBinding.floatingPermission.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_out))
@@ -160,11 +160,15 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
                 this@Dashboard.networkLost()
 
+            } else {
+
+                this@Dashboard.networkAvailable()
+
             }
 
         } else {
 
-            dashboardLayoutBinding.waiting.visibility = View.INVISIBLE
+            dashboardLayoutBinding.waiting.visibility = View.GONE
 
         }
 
@@ -176,7 +180,12 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
             if (allUntouchedFrames.isEmpty()) {
 
-                dataIO.retrieveFrames(applicationContext)
+                if (!DataIO.busyDataIO) {
+
+                    dataIO.retrieveFrames(applicationContext)
+
+
+                }
 
             }
 

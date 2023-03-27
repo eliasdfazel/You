@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 6:27 AM
+ * Last modified 3/27/23, 7:02 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -29,6 +29,10 @@ import kotlinx.coroutines.async
 
 class DataIO : ViewModel() {
 
+    companion object {
+        var busyDataIO = false
+    }
+
     private object Keys {
 
         const val frameAuthorLink = "frameAuthorLink"
@@ -50,6 +54,9 @@ class DataIO : ViewModel() {
     }
 
     fun retrieveFrames(context: Context) {
+        Log.d(this@DataIO.javaClass.simpleName, "Retrieve Frames")
+
+        DataIO.busyDataIO = true
 
         val firestoreDirectory = "/You/Frames/${displayRatio(context)}"
         Log.d(this@DataIO.javaClass.simpleName, "${firestoreDirectory}")
@@ -58,6 +65,8 @@ class DataIO : ViewModel() {
             .collection(firestoreDirectory)
             .get(Source.DEFAULT)
             .addOnSuccessListener { querySnapshot ->
+
+                DataIO.busyDataIO = false
 
                 processFramesSnapshots(context, querySnapshot)
 
@@ -76,6 +85,7 @@ class DataIO : ViewModel() {
 
         if (!querySnapshot.isEmpty
             && querySnapshot.documents.isNotEmpty()) {
+            Log.d(this@DataIO.javaClass.simpleName, "Processing Frames")
 
             querySnapshot.documents.forEach { documentSnapshot ->
 
