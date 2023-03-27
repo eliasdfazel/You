@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 6:10 AM
+ * Last modified 3/27/23, 7:18 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -13,7 +13,6 @@ package co.geeksempire.frames.you.Utils.Animations
 import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
 import android.view.animation.*
 import android.view.animation.Animation.AnimationListener
@@ -21,10 +20,10 @@ import androidx.appcompat.widget.AppCompatImageView
 
 interface AnimationStatus {
     fun animationFinished() {
-        Log.d(this@AnimationStatus.javaClass.simpleName, "Animation Finished")
+//        Log.d(this@AnimationStatus.javaClass.simpleName, "Animation Finished")
     }
     fun animationLoopFinished() {
-        Log.d(this@AnimationStatus.javaClass.simpleName, "Animation Loop Finished")
+//        Log.d(this@AnimationStatus.javaClass.simpleName, "Animation Loop Finished")
     }
 }
 
