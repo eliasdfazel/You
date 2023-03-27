@@ -3,7 +3,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/26/23, 5:04 AM
+  ~ Last modified 3/27/23, 7:30 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -14,10 +14,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <net.geekstools.imageview.customshapes.ShapesImage
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@color/black" />
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
