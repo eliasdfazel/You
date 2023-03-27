@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 6:21 AM
+ * Last modified 3/27/23, 6:27 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -76,8 +76,6 @@ class DataIO : ViewModel() {
 
         if (!querySnapshot.isEmpty
             && querySnapshot.documents.isNotEmpty()) {
-
-            println(">>> >> >")
 
             querySnapshot.documents.forEach { documentSnapshot ->
 
