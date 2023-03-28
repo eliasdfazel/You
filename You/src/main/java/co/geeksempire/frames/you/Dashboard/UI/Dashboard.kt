@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/28/23, 4:53 AM
+ * Last modified 3/28/23, 4:57 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -171,7 +171,7 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
             dashboardLayoutBinding.waiting.visibility = View.GONE
 
             NoticeBar(this@Dashboard, dashboardLayoutBinding.root)
-                .initialize(getString(R.string.floatingNotice), noticeActionText = getString(R.string.ok))
+                .initialize(getString(R.string.floatingNotice), noticeActionText = getString(R.string.ok), noticeActionTint = getColor(R.color.primaryColorOrange))
                 .show(object : NoticeInterface {
 
                     override fun noticeAction() {
