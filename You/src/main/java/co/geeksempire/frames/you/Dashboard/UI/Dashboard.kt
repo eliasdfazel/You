@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 7:19 AM
+ * Last modified 3/28/23, 4:53 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -169,6 +169,18 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         } else {
 
             dashboardLayoutBinding.waiting.visibility = View.GONE
+
+            NoticeBar(this@Dashboard, dashboardLayoutBinding.root)
+                .initialize(getString(R.string.floatingNotice), noticeActionText = getString(R.string.ok))
+                .show(object : NoticeInterface {
+
+                    override fun noticeAction() {
+
+
+
+                    }
+
+                })
 
         }
 

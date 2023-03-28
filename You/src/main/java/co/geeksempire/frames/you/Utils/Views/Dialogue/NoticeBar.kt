@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 6:58 AM
+ * Last modified 3/28/23, 4:53 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -44,15 +44,15 @@ class NoticeBar (private val context: AppCompatActivity, private val viewGroup: 
         noticeBarLayoutBinding.noticeDescription.text = Html.fromHtml(noticeDescription, Html.FROM_HTML_MODE_COMPACT)
         noticeBarLayoutBinding.noticeActionText.text = noticeActionText
 
-        noticeBarLayoutBinding.rootView.apply {
-            visibility = View.VISIBLE
-            startAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_in))
-        }
-
         return this@NoticeBar
     }
 
     fun show(noticeInterface: NoticeInterface) {
+
+        noticeBarLayoutBinding.rootView.apply {
+            visibility = View.VISIBLE
+            startAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_up))
+        }
 
         noticeBarLayoutBinding.noticeActionBackground.setOnClickListener {
 
