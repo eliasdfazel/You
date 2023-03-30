@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "637489667007-b7li742q2keijjqq7ht4p1msrmn7dsfb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.geeksempire.frames.you",
+            "certificate_hash": "d4b212d1ec6e9e8a7ced8966972e3f371b840ec0"
+          }
+        },
+        {
           "client_id": "637489667007-cb0ang0mm6c6da1c7lb0pdeq23otqqbu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -30,7 +38,7 @@
           }
         },
         {
-          "client_id": "637489667007-ccpfvptkpl7c4um3tre9jpklp781c2sk.apps.googleusercontent.com",
+          "client_id": "637489667007-oj3laqjec08nr41h32e6be1f9ecmfuj1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
