@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 6:00 AM
+ * Last modified 4/2/23, 6:01 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -32,9 +32,11 @@ import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogueInterface
  **/
 fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
 
+    val frameHeight = displayY(context) + navigationBarHeight(context) + statusBarHeight(context)
+
     val layoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
         /* Width */ displayX(context),
-        /* Height */ displayY(context) + navigationBarHeight(context) + statusBarHeight(context),
+        /* Height */ frameHeight,
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
         PixelFormat.TRANSLUCENT
@@ -49,9 +51,11 @@ fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
 
 fun generateLayoutParametersHorizontal(context: Context) : WindowManager.LayoutParams {
 
+    val frameHeight = displayY(context) + navigationBarHeight(context) + statusBarHeight(context)
+
     val layoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
         /* Width */ displayX(context),
-        /* Height */ displayY(context) + navigationBarHeight(context) + statusBarHeight(context),
+        /* Height */ frameHeight,
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
         PixelFormat.TRANSLUCENT
