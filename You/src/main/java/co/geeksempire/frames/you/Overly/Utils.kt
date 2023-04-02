@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/2/23, 6:01 AM
+ * Last modified 4/2/23, 6:21 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -32,7 +32,15 @@ import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogueInterface
  **/
 fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
 
-    val frameHeight = displayY(context) + navigationBarHeight(context) + statusBarHeight(context)
+    val frameHeight = if (android.os.Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.Q) {
+
+        displayY(context) + navigationBarHeight(context)
+
+    } else {
+
+        displayY(context) + navigationBarHeight(context) + statusBarHeight(context)
+
+    }
 
     val layoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
         /* Width */ displayX(context),
@@ -51,7 +59,15 @@ fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
 
 fun generateLayoutParametersHorizontal(context: Context) : WindowManager.LayoutParams {
 
-    val frameHeight = displayY(context) + navigationBarHeight(context) + statusBarHeight(context)
+    val frameHeight = if (android.os.Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.Q) {
+
+        displayY(context) + navigationBarHeight(context)
+
+    } else {
+
+        displayY(context) + navigationBarHeight(context) + statusBarHeight(context)
+
+    }
 
     val layoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
         /* Width */ displayX(context),
