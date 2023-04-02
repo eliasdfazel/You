@@ -150,6 +150,9 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-messaging-ktx'
 
+    implementation 'com.google.firebase:firebase-appcheck-playintegrity'
+
+    implementation 'com.google.firebase:firebase-appcheck-debug:16.1.2'
 
 
     testImplementation 'junit:junit:4.13.2'
