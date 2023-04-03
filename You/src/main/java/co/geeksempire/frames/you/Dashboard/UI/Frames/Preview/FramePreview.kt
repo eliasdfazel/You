@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/3/23, 7:24 AM
+ * Last modified 4/3/23, 7:25 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -27,7 +27,6 @@ import co.geeksempire.frames.you.Overly.OverlyFrame
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.displayRatio
 import co.geeksempire.frames.you.Utils.Operations.generateCreatorIcon
-import co.geeksempire.frames.you.Utils.Views.Text.gradientText
 import co.geeksempire.frames.you.databinding.FramesPreviewLayoutBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -187,9 +186,6 @@ class FramePreview : AppCompatActivity() {
     private fun setupCreatorInformation(creatorName: String, creatorUrl: String) {
 
         framesPreviewLayoutBinding.informationBar.creatorName.text = creatorName
-
-        gradientText(textView = framesPreviewLayoutBinding.informationBar.creatorName,
-            gradientColors = intArrayOf(getColor(R.color.primaryColorBlue), getColor(R.color.primaryColorRed)))
 
         Glide.with(applicationContext)
             .asDrawable()
