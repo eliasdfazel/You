@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/23/23, 6:56 AM
+ * Last modified 4/3/23, 7:11 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -10,8 +10,10 @@
 
 package co.geeksempire.frames.you.Dashboard.UI.Frames.Preview
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -24,6 +26,7 @@ import co.geeksempire.frames.you.Database.IO.FrameIO
 import co.geeksempire.frames.you.Overly.OverlyFrame
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.displayRatio
+import co.geeksempire.frames.you.Utils.Operations.generateCreatorIcon
 import co.geeksempire.frames.you.databinding.FramesPreviewLayoutBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -41,6 +44,9 @@ class FramePreview : AppCompatActivity() {
         const val FrameUrlHorizontal = "FrameUrlHorizontal"
         const val FrameTrend = "FrameTrend"
         const val FrameName = "FrameName"
+
+        const val CreatorName = "CreatorName"
+        const val CreatorUrl = "CreatorUrl"
     }
 
     private val favoriteIO by lazy {
@@ -62,7 +68,9 @@ class FramePreview : AppCompatActivity() {
 
         if (intent.hasExtra(FramePreview.IntentKeys.FrameUrl)
             && intent.hasExtra(FramePreview.IntentKeys.FrameTrend)
-            && intent.hasExtra(FramePreview.IntentKeys.FrameName)) {
+            && intent.hasExtra(FramePreview.IntentKeys.FrameName)
+            && intent.hasExtra(FramePreview.IntentKeys.CreatorName)
+            && intent.hasExtra(FramePreview.IntentKeys.CreatorUrl)) {
 
             intent.getStringExtra(FramePreview.IntentKeys.FrameUrl)?.let { frameUrl ->
 
@@ -90,6 +98,9 @@ class FramePreview : AppCompatActivity() {
                                     framesPreviewLayoutBinding.confirmBar.root.visibility = View.VISIBLE
                                     framesPreviewLayoutBinding.confirmBar.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
 
+                                    framesPreviewLayoutBinding.informationBar.root.visibility = View.VISIBLE
+                                    framesPreviewLayoutBinding.informationBar.root.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
+
                                 }
 
                             }
@@ -103,6 +114,9 @@ class FramePreview : AppCompatActivity() {
                 val frameName = intent.getStringExtra(FramePreview.IntentKeys.FrameName)!!
 
                 val frameTrend = intent.getIntExtra(FramePreview.IntentKeys.FrameTrend, 1)
+
+                setupCreatorInformation(intent.getStringExtra(FramePreview.IntentKeys.CreatorName)!!,
+                    intent.getStringExtra(FramePreview.IntentKeys.CreatorUrl)!!)
 
                 framesPreviewLayoutBinding.confirmBar.confirmFrames.setOnClickListener {
 
@@ -166,6 +180,50 @@ class FramePreview : AppCompatActivity() {
         super.onPause()
 
         overridePendingTransition(0, R.anim.fade_out)
+
+    }
+
+    private fun setupCreatorInformation(creatorName: String, creatorUrl: String) {
+
+        framesPreviewLayoutBinding.informationBar.creatorName.text = creatorName
+
+        Glide.with(applicationContext)
+            .asDrawable()
+            .load(generateCreatorIcon(creatorUrl))
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .listener(object : RequestListener<Drawable> {
+
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+
+                    return false
+                }
+
+                override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+
+                    resource?.let {
+
+                        runOnUiThread {
+
+                            framesPreviewLayoutBinding.informationBar.creatorIconBackground.setImageDrawable(resource)
+
+                            framesPreviewLayoutBinding.informationBar.creatorIcon.setImageDrawable(resource)
+
+                            framesPreviewLayoutBinding.informationBar.root.setOnClickListener {
+
+                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(creatorUrl)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                                    ActivityOptions.makeCustomAnimation(applicationContext, R.anim.fade_in, 0).toBundle())
+
+                            }
+
+                        }
+
+                    }
+
+                    return false
+                }
+
+            })
+            .submit()
 
     }
 

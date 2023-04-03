@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 6:03 AM
+ * Last modified 4/3/23, 6:58 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -91,6 +91,9 @@ class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adap
                 putExtra(FramePreview.IntentKeys.FrameUrlHorizontal, framesItems[position].frameUrlHorizontal)
                 putExtra(FramePreview.IntentKeys.FrameTrend, framesItems[position].frameTrend)
                 putExtra(FramePreview.IntentKeys.FrameName, framesItems[position].frameName)
+
+                putExtra(FramePreview.IntentKeys.CreatorName, framesItems[position].frameAuthorNickname)
+                putExtra(FramePreview.IntentKeys.CreatorUrl, framesItems[position].frameAuthorLink)
             }, ActivityOptions.makeCustomAnimation(context, R.anim.fade_in, 0).toBundle())
 
         }

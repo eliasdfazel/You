@@ -3,7 +3,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 4/3/23, 6:56 AM
+  ~ Last modified 4/3/23, 7:01 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -50,6 +50,7 @@
         apps:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/creatorName"
         android:layout_width="0dp"
         android:layout_height="37dp"
         android:paddingHorizontal="13dp"
