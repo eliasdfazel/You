@@ -3,7 +3,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/22/23, 7:07 AM
+  ~ Last modified 4/3/23, 6:46 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -28,8 +28,19 @@
         android:layout_width="match_parent"
         android:layout_height="73dp"
         android:layout_marginBottom="73dp"
-        android:visibility="invisible"
+        android:visibility="visible"
 
         apps:layout_constraintBottom_toBottomOf="parent"/>
+
+    <include
+        layout="@layout/creator_information"
+
+        android:id="@+id/informationBar"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginBottom="7dp"
+        android:visibility="visible"
+
+        apps:layout_constraintBottom_toTopOf="@id/confirmBar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
