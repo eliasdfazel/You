@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 7:18 AM
+ * Last modified 4/3/23, 6:38 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -10,13 +10,16 @@
 
 package co.geeksempire.frames.you.Utils.Animations
 
+import android.animation.Animator
 import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.view.ViewAnimationUtils
 import android.view.animation.*
 import android.view.animation.Animation.AnimationListener
 import androidx.appcompat.widget.AppCompatImageView
+import kotlin.math.hypot
 
 interface AnimationStatus {
     fun animationFinished() {
@@ -125,5 +128,27 @@ fun multipleColorsRotation(instanceOfView: AppCompatImageView, allColors: Array<
     })
 
     instanceOfView.startAnimation(rotateAnimation)
+
+}
+
+fun circularHide(viewInstance: View,
+                 centerX: Int = 0, centerY: Int = 0,
+                 initialDuration: Long = 999) {
+
+    val finalRadius = hypot(centerX.toDouble(), centerY.toDouble()).toFloat()
+
+    val animator: Animator = ViewAnimationUtils.createCircularReveal(
+        viewInstance,
+        centerX, centerY,
+        finalRadius, 0f
+    )
+    animator.duration = initialDuration
+    animator.start()
+
+    Handler(Looper.getMainLooper()).postDelayed({
+
+        viewInstance.visibility = View.INVISIBLE
+
+    }, initialDuration - 13)
 
 }

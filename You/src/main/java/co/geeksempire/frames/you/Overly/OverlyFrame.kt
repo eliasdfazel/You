@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 7:30 AM
+ * Last modified 4/3/23, 6:38 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -16,7 +16,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
+import android.os.Handler
 import android.os.IBinder
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +27,11 @@ import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.FramePreview
 import co.geeksempire.frames.you.R
+import co.geeksempire.frames.you.Utils.Animations.circularHide
+import co.geeksempire.frames.you.Utils.Colors.primaryColors
+import co.geeksempire.frames.you.Utils.Colors.uniqueGradient
+import co.geeksempire.frames.you.Utils.Display.displayX
+import co.geeksempire.frames.you.Utils.Display.displayY
 import co.geeksempire.frames.you.Utils.Notifications.NotificationsCreator
 import co.geeksempire.frames.you.databinding.OverlyLayoutBinding
 import com.bumptech.glide.Glide
@@ -35,6 +43,7 @@ import com.bumptech.glide.request.target.Target
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
 
 class OverlyFrame : Service() {
 
@@ -133,7 +142,7 @@ class OverlyFrame : Service() {
                 frameUrl = intent.getStringExtra(FramePreview.IntentKeys.FrameUrl)!!
                 frameUrlHorizontal = intent.getStringExtra(FramePreview.IntentKeys.FrameUrlHorizontal)!!
 
-                downloadFrame(frameUrl)
+                initializeOverlyFrame(frameUrl)
 
                 if (!OverlyFrame.Framing) {
 
@@ -168,6 +177,25 @@ class OverlyFrame : Service() {
 
     }
 
+    private fun initializeOverlyFrame(frameUrl: String) {
+
+        val primaryColors = primaryColors(applicationContext)
+
+        val randomColors = uniqueGradient(primaryColors)
+
+        overlyLayoutBinding.framePlaceholder.background = GradientDrawable(GradientDrawable.Orientation.TL_BR, randomColors)
+
+        overlyLayoutBinding.framePlaceholder.visibility = View.VISIBLE
+        overlyLayoutBinding.framePlaceholder.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
+
+        Handler(Looper.getMainLooper()).postDelayed({
+
+            downloadFrame(frameUrl)
+
+        }, 975)
+
+    }
+
     private fun downloadFrame(inputFrameUrl: String?) {
 
         Glide.with(applicationContext)
@@ -189,8 +217,10 @@ class OverlyFrame : Service() {
 
                             overlyLayoutBinding.frame.background = (resource)
 
-                            overlyLayoutBinding.frame.visibility = View.VISIBLE
-                            overlyLayoutBinding.frame.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in))
+                            circularHide(viewInstance = overlyLayoutBinding.framePlaceholder,
+                                centerX = displayX(applicationContext) / 2, centerY = displayY(applicationContext) / 2,
+                                initialDuration = 1357
+                            )
 
                         }
 
@@ -203,5 +233,7 @@ class OverlyFrame : Service() {
             .submit()
 
     }
+
+
 
 }
