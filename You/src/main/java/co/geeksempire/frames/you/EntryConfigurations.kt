@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/18/23, 10:31 AM
+ * Last modified 4/12/23, 11:47 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -12,13 +12,16 @@ package co.geeksempire.frames.you
 
 import android.app.ActivityOptions
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import co.geeksempire.frames.you.Dashboard.UI.Dashboard
+import co.geeksempire.frames.you.Database.IO.DisplayIO
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkCheckpoint
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListener
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListenerInterface
 import co.geeksempire.frames.you.databinding.EntryLayoutBinding
+
 
 class EntryConfigurations : AppCompatActivity(), NetworkConnectionListenerInterface {
 
@@ -38,6 +41,12 @@ class EntryConfigurations : AppCompatActivity(), NetworkConnectionListenerInterf
         setContentView(entryLayoutBinding.root)
 
         networkConnectionListener.networkConnectionListenerInterface = this@EntryConfigurations
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            DisplayIO(applicationContext).apply {
+                displayHeight(this@EntryConfigurations)
+            }
+        }
 
         startActivity(Intent(this@EntryConfigurations, Dashboard::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
             ActivityOptions.makeCustomAnimation(applicationContext, R.anim.fade_in, 0).toBundle())

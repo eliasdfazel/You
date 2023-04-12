@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 10:29 AM
+ * Last modified 4/12/23, 11:39 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -130,12 +130,12 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
         }
 
-        setupUserInterface()
-
     }
 
     override fun onResume() {
         super.onResume()
+
+        setupUserInterface()
 
         if (systemSettings.floatingPermissionEnabled()) {
 

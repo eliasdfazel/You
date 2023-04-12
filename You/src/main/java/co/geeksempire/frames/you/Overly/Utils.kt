@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/2/23, 6:21 AM
+ * Last modified 4/12/23, 11:49 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -13,6 +13,7 @@ package co.geeksempire.frames.you.Overly
 import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
+import android.os.Build
 import android.view.Gravity
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -32,9 +33,13 @@ import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogueInterface
  **/
 fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
 
-    val frameHeight = if (android.os.Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.Q) {
+    val frameHeight = if (Build.VERSION.SDK_INT == Build.VERSION_CODES.Q) {
 
         displayY(context) + navigationBarHeight(context)
+
+    } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+
+        displayY(context)
 
     } else {
 
@@ -59,7 +64,7 @@ fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
 
 fun generateLayoutParametersHorizontal(context: Context) : WindowManager.LayoutParams {
 
-    val frameHeight = if (android.os.Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.Q) {
+    val frameHeight = if (Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.Q) {
 
         displayY(context) + navigationBarHeight(context)
 
