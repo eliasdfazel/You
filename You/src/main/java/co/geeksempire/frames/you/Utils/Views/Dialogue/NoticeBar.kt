@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/28/23, 5:07 AM
+ * Last modified 4/12/23, 6:33 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -18,6 +18,7 @@ import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isInvisible
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.dpToInteger
 import co.geeksempire.frames.you.databinding.NoticeBarLayoutBinding
@@ -52,16 +53,20 @@ class NoticeBar (private val context: AppCompatActivity, private val viewGroup: 
 
     fun show(noticeInterface: NoticeInterface) {
 
-        noticeBarLayoutBinding.rootView.apply {
-            visibility = View.VISIBLE
-            startAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_up))
-        }
+        if (noticeBarLayoutBinding.rootView.isInvisible) {
 
-        noticeBarLayoutBinding.noticeActionBackground.setOnClickListener {
+            noticeBarLayoutBinding.rootView.apply {
+                visibility = View.VISIBLE
+                startAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_up))
+            }
 
-            noticeInterface.noticeAction()
+            noticeBarLayoutBinding.noticeActionBackground.setOnClickListener {
 
-            dismiss()
+                noticeInterface.noticeAction()
+
+                dismiss()
+
+            }
 
         }
 
