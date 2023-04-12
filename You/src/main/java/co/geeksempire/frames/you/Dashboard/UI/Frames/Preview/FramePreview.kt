@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/3/23, 7:25 AM
+ * Last modified 4/12/23, 12:39 PM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -27,8 +27,8 @@ import co.geeksempire.frames.you.Overly.OverlyFrame
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.displayRatio
 import co.geeksempire.frames.you.Utils.Operations.generateCreatorIcon
+import co.geeksempire.frames.you.Utils.Views.Glide.GlideApp
 import co.geeksempire.frames.you.databinding.FramesPreviewLayoutBinding
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
@@ -76,7 +76,7 @@ class FramePreview : AppCompatActivity() {
 
                 val frameUrlHorizontal = intent.getStringExtra(FramePreview.IntentKeys.FrameUrlHorizontal)!!
 
-                Glide.with(applicationContext)
+                GlideApp.with(applicationContext)
                     .asDrawable()
                     .load(frameUrl)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -187,7 +187,7 @@ class FramePreview : AppCompatActivity() {
 
         framesPreviewLayoutBinding.informationBar.creatorName.text = creatorName
 
-        Glide.with(applicationContext)
+        GlideApp.with(applicationContext)
             .asDrawable()
             .load(generateCreatorIcon(creatorUrl))
             .diskCacheStrategy(DiskCacheStrategy.ALL)

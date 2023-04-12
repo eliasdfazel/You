@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 10:51 AM
+ * Last modified 4/12/23, 12:39 PM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -33,8 +33,8 @@ import co.geeksempire.frames.you.Utils.Colors.uniqueGradient
 import co.geeksempire.frames.you.Utils.Display.displayX
 import co.geeksempire.frames.you.Utils.Display.displayY
 import co.geeksempire.frames.you.Utils.Notifications.NotificationsCreator
+import co.geeksempire.frames.you.Utils.Views.Glide.GlideApp
 import co.geeksempire.frames.you.databinding.OverlyLayoutBinding
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
@@ -198,7 +198,7 @@ class OverlyFrame : Service() {
 
     private fun downloadFrame(inputFrameUrl: String?) {
 
-        Glide.with(applicationContext)
+        GlideApp.with(applicationContext)
             .asDrawable()
             .load(inputFrameUrl)
             .diskCacheStrategy(DiskCacheStrategy.ALL)

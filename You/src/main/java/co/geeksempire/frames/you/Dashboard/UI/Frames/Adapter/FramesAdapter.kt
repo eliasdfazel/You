@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/3/23, 6:58 AM
+ * Last modified 4/12/23, 12:39 PM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -23,8 +23,8 @@ import androidx.recyclerview.widget.RecyclerView
 import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.FramePreview
 import co.geeksempire.frames.you.Database.Structure.DataStructure
 import co.geeksempire.frames.you.R
+import co.geeksempire.frames.you.Utils.Views.Glide.GlideApp
 import co.geeksempire.frames.you.databinding.FrameItemLayoutBinding
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
@@ -54,7 +54,7 @@ class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adap
 
         framesViewHolder.frameBackground.background = GradientDrawable(GradientDrawable.Orientation.TL_BR, framesItems[position].backgroundColors)
 
-        Glide.with(context)
+        GlideApp.with(context)
             .asDrawable()
             .load(framesItems[position].frameUrl)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
