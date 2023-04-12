@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 7:37 AM
+ * Last modified 4/12/23, 7:43 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -34,33 +34,41 @@ class NextedConstraintLayout(context: Context, attributesSet: AttributeSet) : Co
         resetPath()
     }
 
-    override fun draw(canvas: Canvas) {
+    override fun draw(canvas: Canvas?) {
 
         try {
 
-            val save = canvas.save()
+            canvas?.let {
 
-            canvas.clipPath(path)
+                val save = canvas.save()
 
-            super.draw(canvas)
+                canvas.clipPath(path)
 
-            canvas.restoreToCount(save)
+                super.draw(canvas)
+
+                canvas.restoreToCount(save)
+
+            }
 
         } catch (e: Exception) { }
 
     }
 
-    override fun dispatchDraw(canvas: Canvas) {
+    override fun dispatchDraw(canvas: Canvas?) {
 
         try {
 
-            val save = canvas.save()
+            canvas?.let {
 
-            canvas.clipPath(path)
+                val save = canvas.save()
 
-            super.dispatchDraw(canvas)
+                canvas.clipPath(path)
 
-            canvas.restoreToCount(save)
+                super.dispatchDraw(canvas)
+
+                canvas.restoreToCount(save)
+
+            }
 
         } catch (e: Exception) { }
 
