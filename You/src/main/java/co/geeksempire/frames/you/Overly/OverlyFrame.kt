@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/3/23, 6:38 AM
+ * Last modified 4/12/23, 10:51 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -28,7 +28,7 @@ import android.view.animation.AnimationUtils
 import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.FramePreview
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Animations.circularHide
-import co.geeksempire.frames.you.Utils.Colors.primaryColors
+import co.geeksempire.frames.you.Utils.Colors.allPrimaryColors
 import co.geeksempire.frames.you.Utils.Colors.uniqueGradient
 import co.geeksempire.frames.you.Utils.Display.displayX
 import co.geeksempire.frames.you.Utils.Display.displayY
@@ -179,7 +179,7 @@ class OverlyFrame : Service() {
 
     private fun initializeOverlyFrame(frameUrl: String) {
 
-        val primaryColors = primaryColors(applicationContext)
+        val primaryColors = allPrimaryColors(applicationContext)
 
         val randomColors = uniqueGradient(primaryColors)
 

@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/20/23, 4:56 AM
+ * Last modified 4/12/23, 10:46 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -128,9 +128,10 @@ class Palettes(private val context: Context) {
 
 }
 
-fun primaryColors(context: Context) : ArrayList<Int> {
+fun allPrimaryColors(context: Context) : ArrayList<Int> {
 
     val allPrimaryColors = ArrayList<Int>()
+    allPrimaryColors.add(context.getColor(R.color.primaryColorPurpleLight))
     allPrimaryColors.add(context.getColor(R.color.primaryColorGreen))
     allPrimaryColors.add(context.getColor(R.color.primaryColorRed))
     allPrimaryColors.add(context.getColor(R.color.primaryColorBlue))

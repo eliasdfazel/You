@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/27/23, 7:18 AM
+ * Last modified 4/12/23, 10:53 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -15,7 +15,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import co.geeksempire.frames.you.Database.Structure.DataStructure
-import co.geeksempire.frames.you.Utils.Colors.primaryColors
+import co.geeksempire.frames.you.Utils.Colors.allPrimaryColors
 import co.geeksempire.frames.you.Utils.Colors.uniqueGradient
 import co.geeksempire.frames.you.Utils.Display.displayRatio
 import com.google.firebase.firestore.QuerySnapshot
@@ -25,7 +25,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 class DataIO : ViewModel() {
 
@@ -77,18 +77,17 @@ class DataIO : ViewModel() {
 
     }
 
-    private fun processFramesSnapshots(context: Context, querySnapshot: QuerySnapshot) = CoroutineScope(SupervisorJob() + Dispatchers.IO).async {
+    private fun processFramesSnapshots(context: Context, querySnapshot: QuerySnapshot) = CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
 
         val framesItems = ArrayList<DataStructure>()
 
-        val primaryColors = primaryColors(context)
+        val primaryColors = allPrimaryColors(context)
 
         if (!querySnapshot.isEmpty
             && querySnapshot.documents.isNotEmpty()) {
             Log.d(this@DataIO.javaClass.simpleName, "Processing Frames")
 
             querySnapshot.documents.forEach { documentSnapshot ->
-
 
                 framesItems.add(DataStructure(
                     frameAuthorLink = documentSnapshot.getString(DataIO.Keys.frameAuthorLink).toString(),

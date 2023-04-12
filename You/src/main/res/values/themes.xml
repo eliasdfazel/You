@@ -2,7 +2,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 3/23/23, 8:49 AM
+  ~ Last modified 4/12/23, 10:49 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -37,7 +37,7 @@
 
     <style name="GeeksEmpire.Wallpaper" parent="GeeksEmpire.Material">
 
-        <item name="android:windowBackground">#BA38003C</item>
+        <item name="android:windowBackground">#BAF2F7FF</item>
         <item name="android:windowShowWallpaper">true</item>
 
     </style>

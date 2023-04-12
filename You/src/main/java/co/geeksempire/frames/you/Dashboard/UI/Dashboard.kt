@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/28/23, 4:57 AM
+ * Last modified 4/12/23, 10:29 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -16,6 +16,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
@@ -60,7 +61,7 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         FramesAdapter(this@Dashboard)
     }
 
-    private val allUntouchedFrames = ArrayList<DataStructure>()
+    val allUntouchedFrames = ArrayList<DataStructure>()
 
     lateinit var dashboardLayoutBinding: DashboardLayoutBinding
 
@@ -78,11 +79,9 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
         dashboardLayoutBinding.frameRecyclerView.adapter = framesAdapter
 
         dataIO.allFrames.observe(this@Dashboard) {
+            Log.d(this@Dashboard.javaClass.simpleName, "Frames #${it.size}")
 
             if (it.isNotEmpty()) {
-
-                dashboardLayoutBinding.waiting.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_out))
-                dashboardLayoutBinding.waiting.visibility = View.GONE
 
                 if (allUntouchedFrames.isEmpty()) {
 
@@ -95,6 +94,9 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
                 framesAdapter.framesItems.addAll(it)
 
                 framesAdapter.notifyDataSetChanged()
+
+                dashboardLayoutBinding.waiting.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.fade_out))
+                dashboardLayoutBinding.waiting.visibility = View.GONE
 
                 Handler(Looper.getMainLooper()).postDelayed({
 
@@ -128,12 +130,12 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
         }
 
+        setupUserInterface()
+
     }
 
     override fun onResume() {
         super.onResume()
-
-        setupUserInterface()
 
         if (systemSettings.floatingPermissionEnabled()) {
 
