@@ -1,0 +1,46 @@
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 3/28/23, 4:54 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<resources>
+
+    <string name="applicationName">You</string>
+    <string name="applicationDescription">You</string>
+
+    <string name="stabilityTitle">Stability</string>
+    <string name="stabilityDescription">Turn On Accessibility Service For More Stability.</string>
+
+    <string name="floatingNotice">Switch On Overly Permission</string>
+    <string name="floatingTitle">Overly Permission</string>
+    <string name="floatingDescription">It Allows Me to Display A Frame Over All Applications.\nPlease Grant the Permission by Enabling the Switch.</string>
+
+    <string name="accessibilityTitle">Stability</string>
+    <string name="accessibilityDescription">Increase Stability Of Overly Frames.\nEnable Accessibility Services To Improve Stability Of Overly Frames.</string>
+
+    <string name="removeFrame">Want To Remove Frame?</string>
+
+    <string name="floatingPanelTitle">Overly Frame</string>
+    <string name="floatingPanelDescription">To Remove <b>Overly Frame</b> Click Again On This Button ▶ </string>
+    <string name="removeFloatingPanelDescription">Do You Want To Remove Overly Frame?)</string>
+
+    <string name="search">Search</string>
+
+    <string name="confirm">Confirm</string>
+    <string name="dismiss">Dismiss</string>
+
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="retry">Try</string>
+
+    <string name="noInternet">No Internet Connection</string>
+    <string name="errorOccurred">Error Occurred, Try Again…</string>
+
+</resources>
