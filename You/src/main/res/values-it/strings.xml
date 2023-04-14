@@ -1,0 +1,46 @@
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 4/14/23, 7:52 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<resources>
+
+    <string name="applicationName">You</string>
+    <string name="applicationDescription">Carica il tuo smartphone</string>
+
+    <string name="stabilityTitle">Stabilità</string>
+    <string name="stabilityDescription">Attiva il servizio di accessibilità per una maggiore stabilità.</string>
+
+    <string name="floatingNotice">Switch On Overly Permission</string>
+    <string name="floatingTitle">Autorizzazione sovrapposizione</string>
+    <string name="floatingDescription">Mi permette di visualizzare una cornice su tutte le applicazioni.\nSi prega di concedere l\'autorizzazione abilitando l\'interruttore.</string>
+
+    <string name="accessibilityTitle">Stabilità</string>
+    <string name="accessibilityDescription">Aumenta la stabilità dei frame sovrapposti.\nAbilita i servizi di accessibilità per migliorare la stabilità dei frame sovrapposti.</string>
+
+    <string name="removeFrame">Vuoi rimuovere il telaio?</string>
+
+    <string name="floatingPanelTitle">Cornice sovrapposta</string>
+    <string name="floatingPanelDescription">Per rimuovere il frame eccessivo vai alle preferenze.</string>
+    <string name="removeFloatingPanelDescription">Vuoi rimuovere il telaio?</string>
+
+    <string name="search">Ricerca</string>
+
+    <string name="confirm">Confermare</string>
+    <string name="dismiss">Congedare</string>
+
+    <string name="ok">OK</string>
+    <string name="yes">SÌ</string>
+    <string name="no">NO</string>
+
+    <string name="retry">Tentativa</string>
+
+    <string name="noInternet">Nessuna connessione internet</string>
+    <string name="errorOccurred">Si è verificato un errore, riprova…</string>
+
+</resources>

@@ -1,0 +1,46 @@
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 4/14/23, 7:52 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<resources>
+
+    <string name="applicationName">You</string>
+    <string name="applicationDescription">Cadrez votre smartphone</string>
+
+    <string name="stabilityTitle">La stabilité</string>
+    <string name="stabilityDescription">Activez le service d\'accessibilité pour plus de stabilité.</string>
+
+    <string name="floatingNotice">Switch On Overly Permission</string>
+    <string name="floatingTitle">Autorisation de superposition</string>
+    <string name="floatingDescription">Cela me permet d\'afficher un cadre sur toutes les applications.\nVeuillez accorder l\'autorisation en activant le commutateur.</string>
+
+    <string name="accessibilityTitle">La stabilité</string>
+    <string name="accessibilityDescription">Augmentez la stabilité des cadres de superposition.\nActivez les services d\'accessibilité pour améliorer la stabilité des cadres de superposition.</string>
+
+    <string name="removeFrame">Voulez-vous supprimer le cadre ?</string>
+
+    <string name="floatingPanelTitle">Cadre de superposition</string>
+    <string name="floatingPanelDescription">Pour supprimer trop de cadre, allez dans les préférences.</string>
+    <string name="removeFloatingPanelDescription">Voulez-vous supprimer le cadre ?</string>
+
+    <string name="search">Recherche</string>
+
+    <string name="confirm">Confirmer</string>
+    <string name="dismiss">Rejeter</string>
+
+    <string name="ok">OK</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+
+    <string name="retry">Essayer</string>
+
+    <string name="noInternet">Pas de connexion Internet</string>
+    <string name="errorOccurred">Une erreur s\'est produite, réessayez…</string>
+
+</resources>
