@@ -2,13 +2,13 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 12:39 PM
+ * Last modified 4/14/23, 6:54 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
  */
 
-package co.geeksempire.frames.you.Overly
+package co.geeksempire.frames.you.Overlay
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -45,7 +45,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class OverlyFrame : Service() {
+class OverlayFrame : Service() {
 
     companion object {
         var Framing = false
@@ -83,7 +83,7 @@ class OverlyFrame : Service() {
                     if (overlyLayoutBinding.root.isShown
                         && frameUrl.isNotEmpty()
                         && frameUrlHorizontal.isNotEmpty()) {
-                        Log.d(this@OverlyFrame.javaClass.simpleName, "-> Portrait <-")
+                        Log.d(this@OverlayFrame.javaClass.simpleName, "-> Portrait <-")
 
                         layoutParameters = generateLayoutParameters(applicationContext)
 
@@ -107,7 +107,7 @@ class OverlyFrame : Service() {
                     if (overlyLayoutBinding.root.isShown
                         && frameUrl.isNotEmpty()
                         && frameUrlHorizontal.isNotEmpty()) {
-                        Log.d(this@OverlyFrame.javaClass.simpleName, "-> Landscape <-")
+                        Log.d(this@OverlayFrame.javaClass.simpleName, "-> Landscape <-")
 
                         layoutParameters = generateLayoutParametersHorizontal(applicationContext)
 
@@ -144,9 +144,9 @@ class OverlyFrame : Service() {
 
                 initializeOverlyFrame(frameUrl)
 
-                if (!OverlyFrame.Framing) {
+                if (!OverlayFrame.Framing) {
 
-                    OverlyFrame.Framing = true
+                    OverlayFrame.Framing = true
 
                 }
 
@@ -171,7 +171,7 @@ class OverlyFrame : Service() {
     override fun onDestroy() {
         super.onDestroy()
 
-        OverlyFrame.Framing = false
+        OverlayFrame.Framing = false
 
         windowManager.removeView(overlyLayoutBinding.root)
 

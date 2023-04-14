@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/26/23, 7:11 AM
+ * Last modified 4/14/23, 6:54 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -17,7 +17,7 @@ import android.os.Looper
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.constraintlayout.widget.ConstraintLayout
-import co.geeksempire.frames.you.Overly.OverlyFrame
+import co.geeksempire.frames.you.Overlay.OverlayFrame
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Settings.Settings
 import co.geeksempire.frames.you.Utils.Display.dpToInteger
@@ -102,7 +102,7 @@ fun Settings.setupUserInterface() {
     /* Start - Back */
 
     /* Start - Notice */
-    if (OverlyFrame.Framing) {
+    if (OverlayFrame.Framing) {
 
         Handler(Looper.getMainLooper()).postDelayed({
 
@@ -113,7 +113,7 @@ fun Settings.setupUserInterface() {
 
         settingLayoutBinding.noticeRemove.noticeActionBackground.setOnClickListener {
 
-            stopService(Intent(this@setupUserInterface, OverlyFrame::class.java))
+            stopService(Intent(this@setupUserInterface, OverlayFrame::class.java))
 
             Handler(Looper.getMainLooper()).postDelayed({
 

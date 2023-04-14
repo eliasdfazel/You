@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 12:39 PM
+ * Last modified 4/14/23, 6:54 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -23,7 +23,7 @@ import androidx.appcompat.app.AppCompatActivity
 import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.Extensions.setupUserInterface
 import co.geeksempire.frames.you.Database.IO.FavoriteIO
 import co.geeksempire.frames.you.Database.IO.FrameIO
-import co.geeksempire.frames.you.Overly.OverlyFrame
+import co.geeksempire.frames.you.Overlay.OverlayFrame
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.displayRatio
 import co.geeksempire.frames.you.Utils.Operations.generateCreatorIcon
@@ -120,9 +120,9 @@ class FramePreview : AppCompatActivity() {
 
                 framesPreviewLayoutBinding.confirmBar.confirmFrames.setOnClickListener {
 
-                    if (OverlyFrame.Framing) {
+                    if (OverlayFrame.Framing) {
 
-                        stopService(Intent(applicationContext, OverlyFrame::class.java))
+                        stopService(Intent(applicationContext, OverlayFrame::class.java))
 
                     }
 
@@ -131,7 +131,7 @@ class FramePreview : AppCompatActivity() {
 
                     Handler(Looper.getMainLooper()).postDelayed({
 
-                        startForegroundService(Intent(applicationContext, OverlyFrame::class.java).apply {
+                        startForegroundService(Intent(applicationContext, OverlayFrame::class.java).apply {
                             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             putExtra(FramePreview.IntentKeys.FrameUrl, frameUrl)
                             putExtra(FramePreview.IntentKeys.FrameUrlHorizontal, frameUrlHorizontal)

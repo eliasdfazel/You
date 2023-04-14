@@ -2,13 +2,13 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 11:49 AM
+ * Last modified 4/14/23, 6:54 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
  */
 
-package co.geeksempire.frames.you.Overly
+package co.geeksempire.frames.you.Overlay
 
 import android.content.Context
 import android.content.Intent
@@ -95,7 +95,7 @@ fun createOverlyLayout(context: AppCompatActivity, notificationsCreator: Notific
     notificationsCreator.playNotificationSound(context, R.raw.titan)
     notificationsCreator.doVibrate(context, 73)
 
-    if (!OverlyFrame.Framing) {
+    if (!OverlayFrame.Framing) {
 
         val confirmDialogue = ConfirmDialogue(context = context, viewGroup = rootView)
         confirmDialogue.initialize(dialogueTitle = context.getString(R.string.floatingPanelTitle), dialogueDescription = context.getString(R.string.floatingPanelDescription))
@@ -107,7 +107,7 @@ fun createOverlyLayout(context: AppCompatActivity, notificationsCreator: Notific
 
             })
 
-        context.startForegroundService(Intent(context, OverlyFrame::class.java).apply {
+        context.startForegroundService(Intent(context, OverlayFrame::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             putExtra(FramePreview.IntentKeys.FrameUrl, frameUrl)
             putExtra(FramePreview.IntentKeys.FrameUrlHorizontal, frameUrlHorizontal)
@@ -121,7 +121,7 @@ fun createOverlyLayout(context: AppCompatActivity, notificationsCreator: Notific
 
                 override fun confirmed() {
 
-                    context.stopService(Intent(context, OverlyFrame::class.java))
+                    context.stopService(Intent(context, OverlayFrame::class.java))
 
                 }
 
