@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 10:46 AM
+ * Last modified 4/20/23, 8:01 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -132,6 +132,7 @@ fun allPrimaryColors(context: Context) : ArrayList<Int> {
 
     val allPrimaryColors = ArrayList<Int>()
     allPrimaryColors.add(context.getColor(R.color.primaryColorPurpleLight))
+    allPrimaryColors.add(context.getColor(R.color.primaryColorYellow))
     allPrimaryColors.add(context.getColor(R.color.primaryColorGreen))
     allPrimaryColors.add(context.getColor(R.color.primaryColorRed))
     allPrimaryColors.add(context.getColor(R.color.primaryColorBlue))
