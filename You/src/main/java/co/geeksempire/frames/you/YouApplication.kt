@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/2/23, 6:31 AM
+ * Last modified 4/30/23, 4:45 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -31,9 +31,7 @@ class YouApplication : Application() {
 
         val firebaseAppCheck = FirebaseAppCheck.getInstance()
 
-        firebaseAppCheck.installAppCheckProviderFactory(
-            PlayIntegrityAppCheckProviderFactory.getInstance()
-        )
+        firebaseAppCheck.installAppCheckProviderFactory(PlayIntegrityAppCheckProviderFactory.getInstance())
         if (BuildConfig.DEBUG) { firebaseAppCheck.installAppCheckProviderFactory(DebugAppCheckProviderFactory.getInstance()) }
 
         firebaseAnalytics.logEvent(this@YouApplication.javaClass.simpleName, Bundle().apply { putString(this@YouApplication.javaClass.simpleName, "Started") })

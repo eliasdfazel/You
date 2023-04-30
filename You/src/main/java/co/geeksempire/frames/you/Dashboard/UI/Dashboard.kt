@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 11:39 AM
+ * Last modified 4/30/23, 5:51 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -158,13 +158,13 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
                 false
             }
 
-            if (!networkCheckpoint.networkConnection()) {
+            if (networkCheckpoint.networkConnection()) {
 
-                this@Dashboard.networkLost()
+                this@Dashboard.networkAvailable()
 
             } else {
 
-                this@Dashboard.networkAvailable()
+                this@Dashboard.networkLost()
 
             }
 

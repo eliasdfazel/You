@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/14/23, 6:54 AM
+ * Last modified 4/30/23, 4:51 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -26,6 +26,7 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.FramePreview
+import co.geeksempire.frames.you.Database.IO.DisplayIO
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Animations.circularHide
 import co.geeksempire.frames.you.Utils.Colors.allPrimaryColors
@@ -49,6 +50,10 @@ class OverlayFrame : Service() {
 
     companion object {
         var Framing = false
+    }
+
+    private val displayIO: DisplayIO by lazy {
+        DisplayIO(applicationContext)
     }
 
     private val notificationsCreator = NotificationsCreator()
@@ -85,7 +90,7 @@ class OverlayFrame : Service() {
                         && frameUrlHorizontal.isNotEmpty()) {
                         Log.d(this@OverlayFrame.javaClass.simpleName, "-> Portrait <-")
 
-                        layoutParameters = generateLayoutParameters(applicationContext)
+                        layoutParameters = generateLayoutParameters(applicationContext, displayIO)
 
                         windowManager.updateViewLayout(overlyLayoutBinding.root, layoutParameters)
 
@@ -109,7 +114,7 @@ class OverlayFrame : Service() {
                         && frameUrlHorizontal.isNotEmpty()) {
                         Log.d(this@OverlayFrame.javaClass.simpleName, "-> Landscape <-")
 
-                        layoutParameters = generateLayoutParametersHorizontal(applicationContext)
+                        layoutParameters = generateLayoutParametersHorizontal(applicationContext, displayIO)
 
                         windowManager.updateViewLayout(overlyLayoutBinding.root, layoutParameters)
 
@@ -135,7 +140,7 @@ class OverlayFrame : Service() {
             if (intent.hasExtra(FramePreview.IntentKeys.FrameUrl)
                 && intent.hasExtra(FramePreview.IntentKeys.FrameUrlHorizontal)) {
 
-                layoutParameters = generateLayoutParameters(applicationContext)
+                layoutParameters = generateLayoutParameters(applicationContext, displayIO)
 
                 windowManager.addView(overlyLayoutBinding.root, layoutParameters)
 

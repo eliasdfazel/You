@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/14/23, 6:54 AM
+ * Last modified 4/30/23, 6:34 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -19,6 +19,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import co.geeksempire.frames.you.Dashboard.UI.Frames.Preview.FramePreview
+import co.geeksempire.frames.you.Database.IO.DisplayIO
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.displayX
 import co.geeksempire.frames.you.Utils.Display.displayY
@@ -31,15 +32,11 @@ import co.geeksempire.frames.you.Utils.Views.Dialogue.ConfirmDialogueInterface
 /**
  * @param  yOffset: Status Bar Height
  **/
-fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
+fun generateLayoutParameters(context: Context, displayIO: DisplayIO) : WindowManager.LayoutParams {
 
-    val frameHeight = if (Build.VERSION.SDK_INT == Build.VERSION_CODES.Q) {
+    val frameHeight = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
 
-        displayY(context) + navigationBarHeight(context)
-
-    } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-
-        displayY(context)
+        displayIO.displayHeight(displayY(context))
 
     } else {
 
@@ -62,11 +59,11 @@ fun generateLayoutParameters(context: Context) : WindowManager.LayoutParams {
     return layoutParams
 }
 
-fun generateLayoutParametersHorizontal(context: Context) : WindowManager.LayoutParams {
+fun generateLayoutParametersHorizontal(context: Context, displayIO: DisplayIO) : WindowManager.LayoutParams {
 
-    val frameHeight = if (Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.Q) {
+    val frameHeight = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
 
-        displayY(context) + navigationBarHeight(context)
+        displayIO.displayHeight(displayY(context))
 
     } else {
 

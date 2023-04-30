@@ -14,8 +14,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "33.0.1"
+
+    namespace 'co.geeksempire.blurry.effect'
+
+    compileSdk 33
 
     defaultConfig {
         minSdkVersion 27
@@ -34,11 +36,6 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = 17
-    }
-
-    namespace 'co.geeksempire.blurry.effect'
 }
 
 dependencies {

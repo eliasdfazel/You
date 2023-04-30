@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/30/23, 3:47 AM
+ * Last modified 4/30/23, 6:35 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -12,11 +12,9 @@ package co.geeksempire.frames.you.Utils.Display
 
 import android.content.Context
 import android.content.res.Resources
-import android.os.Build
 import android.util.DisplayMetrics
 import android.util.Log
 import android.util.TypedValue
-import co.geeksempire.frames.you.Database.IO.DisplayIO
 import co.geeksempire.frames.you.Utils.Operations.nearestNumber
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -134,10 +132,6 @@ fun statusBarHeight(context: Context) : Int {
     val resourceId = context.resources.getIdentifier("status_bar_height", "dimen", "android")
     if (resourceId > 0) {
         statusBarHeight = context.resources.getDimensionPixelSize(resourceId)
-    }
-
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-        statusBarHeight = DisplayIO(context).displayHeight(statusBarHeight)
     }
 
     return statusBarHeight

@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 12:39 PM
+ * Last modified 4/30/23, 6:03 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -62,7 +62,7 @@ class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adap
 
                 override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
 
-                    return false
+                    return true
                 }
 
                 override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
@@ -77,7 +77,7 @@ class FramesAdapter (private val context: AppCompatActivity) : RecyclerView.Adap
 
                     }
 
-                    return false
+                    return true
                 }
 
             })
