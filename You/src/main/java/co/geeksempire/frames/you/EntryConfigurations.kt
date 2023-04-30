@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 11:47 AM
+ * Last modified 4/30/23, 6:45 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -21,7 +21,8 @@ import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkCheckpoint
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListener
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkConnectionListenerInterface
 import co.geeksempire.frames.you.databinding.EntryLayoutBinding
-
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.ktx.messaging
 
 class EntryConfigurations : AppCompatActivity(), NetworkConnectionListenerInterface {
 
@@ -46,6 +47,10 @@ class EntryConfigurations : AppCompatActivity(), NetworkConnectionListenerInterf
             DisplayIO(applicationContext).apply {
                 displayHeight(this@EntryConfigurations)
             }
+        }
+
+        if (BuildConfig.VERSION_NAME.contains("Beta")) {
+            Firebase.messaging.subscribeToTopic("Beta")
         }
 
         startActivity(Intent(this@EntryConfigurations, Dashboard::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
