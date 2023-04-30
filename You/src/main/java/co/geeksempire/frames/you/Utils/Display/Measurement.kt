@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 12:04 PM
+ * Last modified 4/30/23, 3:47 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -147,8 +147,8 @@ fun navigationBarHeight(context: Context) : Int {
 
     var navigationBarHeight = 0
 
-    val resourceIdNavigationBar: Int =
-        context.resources.getIdentifier("navigation_bar_height", "dimen", "android")
+    val resourceIdNavigationBar: Int = context.resources.getIdentifier("navigation_bar_height", "dimen", "android")
+
     if (resourceIdNavigationBar > 0) {
         navigationBarHeight = context.resources.getDimensionPixelSize(resourceIdNavigationBar)
     }
