@@ -2,7 +2,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 4/14/23, 7:54 AM
+  ~ Last modified 5/3/23, 11:13 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -11,36 +11,36 @@
 <resources>
 
     <string name="applicationName">You</string>
-    <string name="applicationDescription">Frame Your Smartphone</string>
+    <string name="applicationDescription">Đóng khung điện thoại thông minh của bạn</string>
 
-    <string name="stabilityTitle">Stability</string>
-    <string name="stabilityDescription">Turn On Accessibility Service For More Stability.</string>
+    <string name="stabilityTitle">Sự ổn định</string>
+    <string name="stabilityDescription">Bật dịch vụ trợ năng để ổn định hơn.</string>
 
-    <string name="floatingNotice">Switch On Overlay Permission</string>
-    <string name="floatingTitle">Overlay Permission</string>
-    <string name="floatingDescription">It Allows Me to Display A Frame Over All Applications.\nPlease Grant the Permission by Enabling the Switch.</string>
+    <string name="floatingNotice">Bật quyền lớp phủ</string>
+    <string name="floatingTitle">Quyền lớp phủ</string>
+    <string name="floatingDescription">Nó cho phép tôi hiển thị một khung trên tất cả các ứng dụng.\nVui lòng cấp quyền bằng cách bật công tắc.</string>
 
-    <string name="accessibilityTitle">Stability</string>
-    <string name="accessibilityDescription">Increase Stability Of Overlay Frames.\nEnable Accessibility Services To Improve Stability Of Overlay Frames.</string>
+    <string name="accessibilityTitle">Sự ổn định</string>
+    <string name="accessibilityDescription">Tăng độ ổn định của khung lớp phủ.\nKích hoạt các dịch vụ trợ năng để cải thiện tính ổn định của khung lớp phủ.</string>
 
-    <string name="removeFrame">Want To Remove The Frame?</string>
+    <string name="removeFrame">Bạn có muốn xóa khung lớp phủ không?</string>
 
-    <string name="floatingPanelTitle">Overlay Frame</string>
-    <string name="floatingPanelDescription">To Remove <b>Overly Frame</b> Go To Preferences.</string>
-    <string name="removeFloatingPanelDescription">Do You Want To Remove Overlay Frame?</string>
+    <string name="floatingPanelTitle">Khung lớp phủ</string>
+    <string name="floatingPanelDescription">Để Xóa <b>Khung quá mức</b> Đi tới Tùy chọn.</string>
+    <string name="removeFloatingPanelDescription">Bạn có muốn xóa khung lớp phủ không?</string>
 
-    <string name="search">Search</string>
+    <string name="search">Tìm kiếm</string>
 
-    <string name="confirm">Confirm</string>
-    <string name="dismiss">Dismiss</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="dismiss">Miễn nhiệm</string>
 
     <string name="ok">OK</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
+    <string name="yes">Đúng</string>
+    <string name="no">KHÔNG</string>
 
-    <string name="retry">Try</string>
+    <string name="retry">Thử</string>
 
-    <string name="noInternet">No Internet Connection</string>
-    <string name="errorOccurred">Error Occurred, Try Again…</string>
+    <string name="noInternet">Không có kết nối Internet</string>
+    <string name="errorOccurred">Đã xảy ra lỗi, hãy thử lại…</string>
 
 </resources>
