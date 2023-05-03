@@ -1,0 +1,46 @@
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 5/3/23, 10:57 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<resources>
+
+    <string name="applicationName">You</string>
+    <string name="applicationDescription">I-frame ang iyong smartphone</string>
+
+    <string name="stabilityTitle">Katatagan</string>
+    <string name="stabilityDescription">I-on ang serbisyo sa pagiging naa-access para sa higit na katatagan.</string>
+
+    <string name="floatingNotice">I-on ang pahintulot sa overlay</string>
+    <string name="floatingTitle">Pahintulot sa Overlay</string>
+    <string name="floatingDescription">Nagbibigay-daan ito sa akin na magpakita ng frame sa lahat ng application.\nMangyaring bigyan ang pahintulot sa pamamagitan ng pagpapagana ng switch.</string>
+
+    <string name="accessibilityTitle">Katatagan</string>
+    <string name="accessibilityDescription">Dagdagan ang katatagan ng mga overlay na frame.\nPaganahin ang mga serbisyo sa pagiging naa-access upang mapabuti ang katatagan Ng mga overlay na frame.</string>
+
+    <string name="removeFrame">Gusto mo bang tanggalin ang frame?</string>
+
+    <string name="floatingPanelTitle">Overlay na frame.</string>
+    <string name="floatingPanelDescription">Upang Alisin ang <b>Labis na Frame</b> Pumunta Sa Mga Kagustuhan.</string>
+    <string name="removeFloatingPanelDescription">Gusto mo bang tanggalin ang frame?</string>
+
+    <string name="search">Maghanap</string>
+
+    <string name="confirm">Kumpirmahin</string>
+    <string name="dismiss">I-dismiss</string>
+
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">Hindi</string>
+
+    <string name="retry">Subukan mo</string>
+
+    <string name="noInternet">Walang Koneksyon sa Internet</string>
+    <string name="errorOccurred">Nagkaroon ng Error, Subukang Muli...</string>
+
+</resources>

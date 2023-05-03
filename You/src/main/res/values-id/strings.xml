@@ -1,0 +1,46 @@
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 5/3/23, 11:06 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<resources>
+
+    <string name="applicationName">You</string>
+    <string name="applicationDescription">Bingkai Smartphone Anda</string>
+
+    <string name="stabilityTitle">Stabilitas</string>
+    <string name="stabilityDescription">Aktifkan layanan aksesibilitas untuk stabilitas lebih.</string>
+
+    <string name="floatingNotice">Aktifkan izin hamparan</string>
+    <string name="floatingTitle">Izin Hamparan.</string>
+    <string name="floatingDescription">Ini memungkinkan saya untuk menampilkan bingkai di semua aplikasi.\nHarap berikan izin dengan mengaktifkan sakelar.</string>
+
+    <string name="accessibilityTitle">Stabilitas</string>
+    <string name="accessibilityDescription">Tingkatkan stabilitas bingkai overlay.\nAktifkan layanan aksesibilitas untuk meningkatkan stabilitas bingkai overlay.</string>
+
+    <string name="removeFrame">Apakah Anda ingin menghapus bingkai?</string>
+
+    <string name="floatingPanelTitle">Bingkai Hamparan</string>
+    <string name="floatingPanelDescription">Untuk Menghapus <b>Bingkai Berlebih</b> Buka Preferensi.</string>
+    <string name="removeFloatingPanelDescription">Apakah Anda ingin menghapus bingkai?</string>
+
+    <string name="search">Mencari</string>
+
+    <string name="confirm">Mengonfirmasi</string>
+    <string name="dismiss">Membubarkan</string>
+
+    <string name="ok">OK</string>
+    <string name="yes">Ya</string>
+    <string name="no">TIDAK</string>
+
+    <string name="retry">Mencoba</string>
+
+    <string name="noInternet">Tidak ada koneksi internet</string>
+    <string name="errorOccurred">Terjadi Kesalahan, Coba Lagi…</string>
+
+</resources>

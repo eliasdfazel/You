@@ -2,7 +2,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 5/3/23, 11:02 AM
+  ~ Last modified 4/14/23, 7:54 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -18,7 +18,7 @@
 
     <string name="floatingNotice">Switch On Overlay Permission</string>
     <string name="floatingTitle">Overlay Permission</string>
-    <string name="floatingDescription">It Allows Me To Display A Frame Over All Applications.\nPlease Grant The Permission By Enabling The Switch.</string>
+    <string name="floatingDescription">It Allows Me to Display A Frame Over All Applications.\nPlease Grant the Permission by Enabling the Switch.</string>
 
     <string name="accessibilityTitle">Stability</string>
     <string name="accessibilityDescription">Increase Stability Of Overlay Frames.\nEnable Accessibility Services To Improve Stability Of Overlay Frames.</string>
