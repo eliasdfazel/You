@@ -1,0 +1,46 @@
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 6/14/23, 11:20 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<resources>
+
+    <string name="applicationName">You</string>
+    <string name="applicationDescription">Bingkai Telefon Pintar Anda</string>
+
+    <string name="stabilityTitle">Kestabilan</string>
+    <string name="stabilityDescription">Hidupkan Perkhidmatan Kebolehcapaian Untuk Lebih Kestabilan.</string>
+
+    <string name="floatingNotice">Hidupkan Kebenaran Tindanan</string>
+    <string name="floatingTitle">Kebenaran Tindanan</string>
+    <string name="floatingDescription">Ia Membenarkan Saya Memaparkan Bingkai Pada Semua Aplikasi.\nSila Berikan Kebenaran Dengan Mendayakan Suis.</string>
+
+    <string name="accessibilityTitle">Kestabilan</string>
+    <string name="accessibilityDescription">Tingkatkan Kestabilan Bingkai Tindanan.\nDayakan Perkhidmatan Kebolehcapaian Untuk Meningkatkan Kestabilan Bingkai Tindanan.</string>
+
+    <string name="removeFrame">Mahu Keluarkan Bingkai?</string>
+
+    <string name="floatingPanelTitle">Bingkai Tindanan</string>
+    <string name="floatingPanelDescription">Untuk Mengalih keluar <b>Terlalu Bingkai</b> Pergi Ke Keutamaan.</string>
+    <string name="removeFloatingPanelDescription">Adakah Anda Mahu Mengalih Keluar Bingkai Tindanan?</string>
+
+    <string name="search">Cari</string>
+
+    <string name="confirm">Sahkan</string>
+    <string name="dismiss">Tolak</string>
+
+    <string name="ok">OK</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+
+    <string name="retry">Cubalah</string>
+
+    <string name="noInternet">Tiada sambungan internet</string>
+    <string name="errorOccurred">Ralat Berlaku, Cuba Lagi…</string>
+
+</resources>
