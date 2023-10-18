@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/13/23, 5:57 AM
+ * Last modified 10/18/23, 8:46 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -36,7 +36,12 @@ fun uniqueGradient(allColors: ArrayList<Int>) : IntArray {
 
             allColors.remove(colorOne)
 
-            colorTwo = allColors.random()
+            if (allColors.isNotEmpty()) {
+
+                colorTwo = allColors.random()
+
+            }
+
 
         }
 
