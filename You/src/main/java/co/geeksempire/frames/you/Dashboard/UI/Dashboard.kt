@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/30/23, 5:51 AM
+ * Last modified 10/18/23, 8:24 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -25,6 +25,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.geeksempire.frames.you.Dashboard.Extensions.setupUserInterface
+import co.geeksempire.frames.you.Dashboard.Extensions.sharingProcess
 import co.geeksempire.frames.you.Dashboard.Filters.FilterFrames
 import co.geeksempire.frames.you.Dashboard.UI.Frames.Adapter.FramesAdapter
 import co.geeksempire.frames.you.Database.IO.DataIO
@@ -105,6 +106,8 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
                     FilterFrames(applicationContext, dashboardLayoutBinding, dataIO)
                         .initialize(allUntouchedFrames)
+
+                    sharingProcess()
 
                 }, 333)
 

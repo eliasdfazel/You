@@ -2,7 +2,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 4/14/23, 7:52 AM
+  ~ Last modified 10/18/23, 7:45 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -30,6 +30,17 @@
     <string name="removeFloatingPanelDescription">¿Quieres quitar el marco?</string>
 
     <string name="search">Buscar</string>
+
+    <string name="shareDescription">Comparte esta nueva aplicación de personalización creativa con tus amigos. Gana \'You Point\' para obtener más marcos pronto.</string>
+    <string name="sharingText">
+        Personalizar biseles; Personalice su teléfono inteligente con marcos modernos, clásicos y geniales.
+        https://GeeksEmpire.co/You
+        \n\n
+        Comparte esta nueva aplicación de personalización creativa con tus amigos. Gana \'You Point\' para obtener más marcos pronto.
+    </string>
+
+    <string name="share">Compartir</string>
+    <string name="later">Más tarde</string>
 
     <string name="confirm">Confirmar</string>
     <string name="dismiss">Despedir</string>

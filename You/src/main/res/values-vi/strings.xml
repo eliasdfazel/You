@@ -2,7 +2,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 5/3/23, 11:13 AM
+  ~ Last modified 10/18/23, 8:22 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -30,6 +30,17 @@
     <string name="removeFloatingPanelDescription">Bạn có muốn xóa khung lớp phủ không?</string>
 
     <string name="search">Tìm kiếm</string>
+
+    <string name="shareDescription">Chia sẻ ứng dụng cá nhân hóa sáng tạo mới này với bạn bè của bạn. Kiếm \'You Point\' để sớm nhận được nhiều khung hình hơn.</string>
+    <string name="sharingText">
+        Tùy chỉnh Bezels; Cá nhân hóa điện thoại thông minh của bạn với các khung hình hiện đại, cổ điển, thú vị.
+        https://GeeksEmpire.co/You
+        \n\n
+        Chia sẻ ứng dụng cá nhân hóa sáng tạo mới này với bạn bè của bạn. Kiếm \'You Point\' để sớm nhận được nhiều khung hình hơn.
+    </string>
+
+    <string name="share">Chia sẻ</string>
+    <string name="later">Sau đó</string>
 
     <string name="confirm">Xác nhận</string>
     <string name="dismiss">Miễn nhiệm</string>

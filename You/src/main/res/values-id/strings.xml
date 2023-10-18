@@ -2,7 +2,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 5/3/23, 11:06 AM
+  ~ Last modified 10/18/23, 8:18 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -30,6 +30,17 @@
     <string name="removeFloatingPanelDescription">Apakah Anda ingin menghapus bingkai?</string>
 
     <string name="search">Mencari</string>
+
+    <string name="shareDescription">Bagikan aplikasi personalisasi kreatif baru ini dengan teman-teman Anda. Dapatkan \'You Point\' untuk segera mendapatkan lebih banyak bingkai.</string>
+    <string name="sharingText">
+        Sesuaikan Bezel; Personalisasikan Ponsel Cerdas Anda Dengan Bingkai Modern, Klasik, dan Keren.
+        https://GeeksEmpire.co/You
+        \n\n
+        Bagikan aplikasi personalisasi kreatif baru ini dengan teman-teman Anda. Dapatkan \'You Point\' untuk segera mendapatkan lebih banyak bingkai.
+    </string>
+
+    <string name="share">Membagikan</string>
+    <string name="later">Nanti</string>
 
     <string name="confirm">Mengonfirmasi</string>
     <string name="dismiss">Membubarkan</string>

@@ -2,7 +2,7 @@
   ~ Copyright © 2023 By Geeks Empire.
   ~
   ~ Created by Elias Fazel
-  ~ Last modified 5/3/23, 10:57 AM
+  ~ Last modified 10/18/23, 8:15 AM
   ~
   ~ Licensed Under MIT License.
   ~ https://opensource.org/licenses/MIT
@@ -30,6 +30,17 @@
     <string name="removeFloatingPanelDescription">Gusto mo bang tanggalin ang frame?</string>
 
     <string name="search">Maghanap</string>
+
+    <string name="shareDescription">Ibahagi ang bagong creative personalization application na ito sa iyong mga kaibigan. Makakuha ng \'You Point\' para makakuha ng higit pang mga frame sa lalong madaling panahon.</string>
+    <string name="sharingText">
+        I-customize ang mga Bezel; I-personalize ang Iyong Smartphone Gamit ang Moderno, Klasiko, Cool na Mga Frame.
+        https://GeeksEmpire.co/You
+        \n\n
+        Ibahagi ang bagong creative personalization application na ito sa iyong mga kaibigan. Makakuha ng \'You Point\' para makakuha ng higit pang mga frame sa lalong madaling panahon
+    </string>
+
+    <string name="share">Ibahagi</string>
+    <string name="later">Mamaya</string>
 
     <string name="confirm">Kumpirmahin</string>
     <string name="dismiss">I-dismiss</string>

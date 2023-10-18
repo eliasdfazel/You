@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2023 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel
+  ~ Last modified 10/18/23, 7:43 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentWrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        apps:layout_constraintBottom_toBottomOf="parent"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="357dp"
+            android:layout_marginBottom="73dp"
+            android:layout_marginHorizontal="37dp"
+            android:backgroundTint="@color/dark"
+            android:background="@drawable/roundangle"
+
+            apps:layout_constraintBottom_toBottomOf="parent"
+            apps:layout_constraintStart_toStartOf="parent"
+            apps:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/confirmIcon"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="31dp"
+            android:src="@mipmap/ic_launcher"
+
+            apps:layout_constraintStart_toStartOf="@id/frame"
+            apps:layout_constraintTop_toTopOf="@id/frame"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/confirmTitle"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginEnd="31dp"
+            android:paddingHorizontal="13dp"
+            android:lines="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:marqueeRepeatLimit="3"
+            android:gravity="center_vertical"
+            android:text="@string/applicationName"
+            android:textSize="19sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/ubuntu"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+
+            apps:layout_constraintTop_toTopOf="@id/confirmIcon"
+            apps:layout_constraintStart_toEndOf="@id/confirmIcon"
+            apps:layout_constraintEnd_toEndOf="@id/frame"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/confirmDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:ellipsize="end"
+            android:lines="9"
+            android:text="@string/removeFloatingPanelDescription"
+            android:textSize="15sp"
+            android:textColor="@color/premiumLight"
+
+            apps:layout_constraintStart_toStartOf="@id/confirmIcon"
+            apps:layout_constraintTop_toBottomOf="@id/confirmIcon"
+            apps:layout_constraintEnd_toEndOf="@id/confirmTitle"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dismissButton"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginBottom="31dp"
+            android:textAllCaps="false"
+            android:text="@string/later"
+            android:textSize="13sp"
+            android:textColor="@color/primaryColorRed"
+            android:fontFamily="@font/ubuntu"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+
+            apps:rippleColor="@color/primaryColorBlue"
+            apps:cornerRadius="11dp"
+            apps:strokeColor="@color/premiumDark"
+            apps:strokeWidth="3dp"
+            apps:backgroundTint="@color/transparent"
+
+            apps:layout_constraintWidth_percent="0.31"
+            apps:layout_constraintBottom_toBottomOf="@id/frame"
+            apps:layout_constraintStart_toStartOf="@id/frame"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirmButton"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="31dp"
+            android:textAllCaps="false"
+            android:text="@string/share"
+            android:textSize="13sp"
+            android:textColor="@color/primaryColorGreen"
+            android:fontFamily="@font/ubuntu"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+
+            apps:rippleColor="@color/primaryColorBlue"
+            apps:cornerRadius="11dp"
+            apps:strokeColor="@color/premiumDark"
+            apps:strokeWidth="3dp"
+            apps:backgroundTint="@color/premiumDark"
+
+            apps:layout_constraintWidth_percent="0.31"
+            apps:layout_constraintBottom_toBottomOf="@id/frame"
+            apps:layout_constraintEnd_toEndOf="@id/frame"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</co.geeksempire.frames.you.Utils.Views.ViewGroups.NextedConstraintLayout>
