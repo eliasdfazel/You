@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 3/15/23, 6:25 AM
+ * Last modified 10/18/23, 7:27 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -13,7 +13,15 @@ package co.geeksempire.blurry.effect.library
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.LinearGradient
+import android.graphics.Paint
+import android.graphics.Path
+import android.graphics.RadialGradient
+import android.graphics.Rect
+import android.graphics.RectF
+import android.graphics.Shader
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
@@ -335,7 +343,7 @@ open class OverlayBlur(context: Context, attributeSet: AttributeSet) : View(cont
                     if (decor.background != null) {
                         decor.background.draw(blurringCanvas!!)
                     }
-                    decor.draw(blurringCanvas)
+                    decor.draw(blurringCanvas!!)
                 } catch (e: Exception) {
 
                 } finally {
@@ -386,7 +394,7 @@ open class OverlayBlur(context: Context, attributeSet: AttributeSet) : View(cont
         super.onDetachedFromWindow()
     }
 
-    override fun draw(canvas: Canvas?) {
+    override fun draw(canvas: Canvas) {
         if (isRendering) {
             // Quit here, don't draw views above me
         } else if (RENDERING_COUNT > 0) {

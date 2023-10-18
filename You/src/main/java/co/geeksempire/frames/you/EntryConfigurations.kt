@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/30/23, 6:45 AM
+ * Last modified 10/18/23, 6:55 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -34,7 +34,7 @@ class EntryConfigurations : AppCompatActivity(), NetworkConnectionListenerInterf
         NetworkConnectionListener(this@EntryConfigurations, entryLayoutBinding.rootView, networkCheckpoint)
     }
 
-    lateinit var entryLayoutBinding: EntryLayoutBinding
+    private lateinit var entryLayoutBinding: EntryLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

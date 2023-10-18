@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 7:43 AM
+ * Last modified 10/18/23, 7:13 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -34,7 +34,7 @@ class NextedConstraintLayout(context: Context, attributesSet: AttributeSet) : Co
         resetPath()
     }
 
-    override fun draw(canvas: Canvas?) {
+    override fun draw(canvas: Canvas) {
 
         try {
 
@@ -54,7 +54,7 @@ class NextedConstraintLayout(context: Context, attributesSet: AttributeSet) : Co
 
     }
 
-    override fun dispatchDraw(canvas: Canvas?) {
+    override fun dispatchDraw(canvas: Canvas) {
 
         try {
 

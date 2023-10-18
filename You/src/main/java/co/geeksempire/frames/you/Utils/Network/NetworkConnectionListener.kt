@@ -2,7 +2,7 @@
  * Copyright © 2023 By Geeks Empire.
  *
  * Created by Elias Fazel
- * Last modified 4/12/23, 12:39 PM
+ * Last modified 10/18/23, 7:13 AM
  *
  * Licensed Under MIT License.
  * https://opensource.org/licenses/MIT
@@ -21,8 +21,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import co.geeksempire.frames.you.R
-import co.geeksempire.frames.you.Utils.Views.Glide.GlideApp
 import co.geeksempire.frames.you.databinding.OfflineIndicatorBinding
+import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 interface NetworkConnectionListenerInterface {
@@ -86,7 +86,7 @@ class NetworkConnectionListener constructor (private var appCompatActivity: AppC
                         try { rootView.addView(offlineIndicator.root) } catch (e: Exception){ e.printStackTrace() }
 
                         Handler(Looper.getMainLooper()).postDelayed(Runnable {
-                            GlideApp.with(appCompatActivity)
+                            Glide.with(appCompatActivity)
                                 .asGif()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .load(R.drawable.no_internet_connection)
