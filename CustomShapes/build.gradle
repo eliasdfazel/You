@@ -15,11 +15,11 @@ android {
 
     namespace 'net.geekstools.imageview.customshapes'
 
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
-        minSdkVersion 27
-        targetSdkVersion 33
+        minSdk 27
+        targetSdk 34
     }
 
     buildTypes {
@@ -37,6 +37,6 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
 }
