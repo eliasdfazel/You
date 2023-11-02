@@ -14,9 +14,11 @@ import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.content.res.Configuration
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
@@ -169,7 +171,11 @@ class OverlayFrame : Service() {
     override fun onCreate() {
         super.onCreate()
 
-        startForeground(333, notificationsCreator.bindNotification(applicationContext))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startForeground(333, notificationsCreator.bindNotification(applicationContext), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
+        } else {
+            startForeground(333, notificationsCreator.bindNotification(applicationContext))
+        }
 
     }
 
