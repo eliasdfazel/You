@@ -22,7 +22,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
@@ -97,7 +97,11 @@
             android:label="@string/applicationName"
             android:name=".Overlay.OverlayFrame"
             android:exported="false"
-            android:foregroundServiceType="dataSync">
+            android:foregroundServiceType="specialUse">
+
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="For this new innovative personalization application, we are using foreground service to create overlay windows to add some custom frames. Foreground Service is used to create stable overlay layer to display a windows over other apps also known as Overlay Windows, for multitasking, personalization."/>
+
         </service>
 
         <service
