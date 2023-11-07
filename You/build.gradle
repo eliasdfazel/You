@@ -22,7 +22,7 @@ android {
         minSdk 27
         targetSdk 34
 
-        versionCode 15
+        versionCode 16
         versionName "${majorVersion}." + getDateMonth() + "." + getDateDay() + "." + getDateYear() + ".${versionCode}"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

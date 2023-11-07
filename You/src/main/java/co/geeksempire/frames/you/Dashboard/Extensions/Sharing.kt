@@ -55,6 +55,8 @@ fun Dashboard.sharingProcess() {
 
                 dashboardLayoutBinding.sharingView.dismissButton.performClick()
 
+                pointsIO.storePoints()
+
             }
 
             dashboardLayoutBinding.sharingView.dismissButton.setOnClickListener {

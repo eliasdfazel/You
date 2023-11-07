@@ -30,6 +30,7 @@ import co.geeksempire.frames.you.Dashboard.Filters.FilterFrames
 import co.geeksempire.frames.you.Dashboard.UI.Frames.Adapter.FramesAdapter
 import co.geeksempire.frames.you.Database.IO.DataIO
 import co.geeksempire.frames.you.Database.Structure.DataStructure
+import co.geeksempire.frames.you.Profile.Points.IO.PointsIO
 import co.geeksempire.frames.you.R
 import co.geeksempire.frames.you.Utils.Display.columnCount
 import co.geeksempire.frames.you.Utils.NetworkConnections.NetworkCheckpoint
@@ -60,6 +61,10 @@ class Dashboard : AppCompatActivity(), NetworkConnectionListenerInterface {
 
     private val framesAdapter by lazy {
         FramesAdapter(this@Dashboard)
+    }
+
+    val pointsIO by lazy {
+        PointsIO(applicationContext)
     }
 
     val allUntouchedFrames = ArrayList<DataStructure>()

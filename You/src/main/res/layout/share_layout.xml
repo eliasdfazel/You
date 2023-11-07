@@ -80,7 +80,7 @@
             android:layout_marginTop="13dp"
             android:ellipsize="end"
             android:lines="9"
-            android:text="@string/removeFloatingPanelDescription"
+            android:text="@string/shareDescription"
             android:textSize="15sp"
             android:textColor="@color/premiumLight"
 
